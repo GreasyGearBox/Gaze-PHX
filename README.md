@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/32916770/README.md)
 # Gaze - PHX
 
 **Version:** 0.1.0  
