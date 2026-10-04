@@ -1,7 +1,7 @@
 addon.name = 'gaze';
 addon.author = 'Mr.Bear';
-addon.version = '0.1.0';
-addon.desc = 'A lightweight targeted-player profile helper for Phoenix XI.';
+addon.version = '0.4.1';
+addon.desc = 'A lightweight player-profile and NM-wiki helper for Phoenix XI.';
 require 'common';
 
 local bit      = require 'bit';
@@ -9,17 +9,32 @@ local chat     = require 'chat';
 local imgui    = require 'imgui';
 local prims    = require 'primitives';
 local settings = require 'settings';
+local nm_names = require 'nms';
+local ph_lookup = require 'placeholders';
+local mob_links = require 'mob_links';
 
 local PROFILE_BASE = 'https://phoenix-xi.com/characters/';
-local DEBOUNCE_MS  = 200;
+local WIKI_BASE    = 'https://wiki.phoenix-xi.com/';
+local DEBOUNCE_MS  = 500;
 local TEXTURE_SIZE = 128;
 local SIZE_PRESETS = T{ 40, 56, 72 };
+
+-- NM lookup is intentionally disabled in Salvage and Nyzul Isle.
+local EXCLUDED_NM_ZONES = {
+    [73] = true, -- Zhayolm Remnants
+    [74] = true, -- Arrapago Remnants
+    [75] = true, -- Bhaflau Remnants
+    [76] = true, -- Silver Sea Remnants
+    [77] = true, -- Nyzul Isle
+};
 
 local STATE_IDLE    = 'idle';
 local STATE_PLAYER  = 'player';
 local STATE_CLICKED = 'clicked';
+local STATE_NM      = 'nm';
 
 local default_settings = T{
+    mode         = 1,
     visible      = true,
     x            = 40,
     y            = 40,
@@ -37,12 +52,14 @@ local gaze = T{
 
     candidate_key  = nil,
     candidate_name = nil,
+    candidate_kind = nil,
     candidate_since = 0,
 
     stable_key     = 'idle',
     stable_name    = nil,
+    stable_kind    = 'idle',
 
-    pending_copy   = nil,
+    pending_link   = nil,
 
     mouse_down     = false,
     dragging       = false,
@@ -50,6 +67,35 @@ local gaze = T{
     drag_y         = 0,
     move_mode      = false,
 };
+
+-- Load the Windows URL handler only when browser mode is used.
+local browser_ffi, browser_shell;
+local function open_browser(url)
+    local ok, result = pcall(function ()
+        if (browser_shell == nil) then
+            browser_ffi = require 'ffi';
+            browser_ffi.cdef[[
+                void* __stdcall ShellExecuteA(void* hwnd, const char* operation,
+                    const char* file, const char* parameters, const char* directory, int show);
+            ]];
+            browser_shell = browser_ffi.load('shell32');
+        end
+        return tonumber(browser_ffi.cast('intptr_t',
+            browser_shell.ShellExecuteA(nil, 'open', url, nil, nil, 1)));
+    end);
+    if (not ok or result == nil or result <= 32) then
+        print(chat.header('Gaze'):append(chat.error(
+            'Could not open browser. Use /gaze mode 1 to copy links instead.')));
+        return false;
+    end
+    return true;
+end
+
+local function ensure_mode_settings()
+    if (gaze.settings.mode ~= 1 and gaze.settings.mode ~= 2) then
+        gaze.settings.mode = 1;
+    end
+end
 
 local function get_display_size()
     local index = tonumber(gaze.settings.size_index) or 2;
@@ -70,6 +116,15 @@ local function normalize_name(name)
     end
 
     return name:lower();
+end
+
+local function get_current_zone()
+    local party = AshitaCore:GetMemoryManager():GetParty();
+    if (party == nil) then
+        return 0;
+    end
+
+    return tonumber(party:GetMemberZone(0)) or 0;
 end
 
 local function ensure_recent_settings()
@@ -142,6 +197,7 @@ local textures = {
     [STATE_IDLE]    = asset_path('eye_idle.png'),
     [STATE_PLAYER]  = asset_path('eye_player.png'),
     [STATE_CLICKED] = asset_path('eye_clicked.png'),
+    [STATE_NM]      = asset_path('eye_nm.png'),
 };
 
 local function valid_character_name(name)
@@ -169,35 +225,56 @@ local function get_current_target()
     return GetEntity(index), index;
 end
 
-local function get_player_target()
+local function get_supported_target()
     local entity, index = get_current_target();
 
     if (entity == nil or entity.Name == nil or entity.Name == '') then
         return nil;
     end
 
-    -- Standard FFXI player-character spawn flag.
-    if (bit.band(entity.SpawnFlags or 0, 0x01) ~= 0x01) then
-        return nil;
-    end
-
-    if (not valid_character_name(entity.Name)) then
-        return nil;
-    end
-
+    local flags = entity.SpawnFlags or 0;
     local sid = tonumber(entity.ServerId) or 0;
-    local key;
 
-    if (sid ~= 0) then
-        key = ('player:%u'):fmt(sid);
-    else
-        key = ('player:%u:%s'):fmt(index, entity.Name);
+    -- Player character.
+    if (bit.band(flags, 0x01) == 0x01) then
+        if (not valid_character_name(entity.Name)) then
+            return nil;
+        end
+
+        local key;
+        if (sid ~= 0) then
+            key = ('player:%u'):fmt(sid);
+        else
+            key = ('player:%u:%s'):fmt(index, entity.Name);
+        end
+
+        return {
+            kind = 'player',
+            key  = key,
+            name = entity.Name,
+        };
     end
 
-    return {
-        key  = key,
-        name = entity.Name,
-    };
+    -- Match PHs by full ServerId AND exact name (case-insensitive).
+    -- Published internal suffixes are never stripped or guessed.
+    if (bit.band(flags, 0x10) == 0x10) then
+        local zone = get_current_zone();
+        if (zone == 0 or EXCLUDED_NM_ZONES[zone]) then
+            return nil;
+        end
+        local slug, kind = mob_links.resolve(entity.Name, sid, nm_names, ph_lookup);
+        if (slug ~= nil) then
+            return {
+                kind = kind,
+                key = ('%s:%u:%u:%s:%s'):fmt(kind, zone, sid ~= 0 and sid or index,
+                    entity.Name, slug),
+                name = entity.Name,
+                slug = slug,
+            };
+        end
+    end
+
+    return nil;
 end
 
 local function set_state(state)
@@ -232,14 +309,16 @@ end
 
 local function update_target_state()
     local now = ashita.time.get_tick64();
-    local target = get_player_target();
+    local target = get_supported_target();
 
     local next_key  = target ~= nil and target.key or 'idle';
     local next_name = target ~= nil and target.name or nil;
+    local next_kind = target ~= nil and target.kind or 'idle';
 
     if (next_key ~= gaze.candidate_key) then
         gaze.candidate_key   = next_key;
         gaze.candidate_name  = next_name;
+        gaze.candidate_kind  = next_kind;
         gaze.candidate_since = now;
     end
 
@@ -247,9 +326,12 @@ local function update_target_state()
         if ((now - gaze.candidate_since) >= DEBOUNCE_MS) then
             gaze.stable_key  = gaze.candidate_key;
             gaze.stable_name = gaze.candidate_name;
+            gaze.stable_kind = gaze.candidate_kind;
 
             if (gaze.stable_key == 'idle') then
                 set_state(STATE_IDLE);
+            elseif (gaze.stable_kind == 'nm' or gaze.stable_kind == 'ph') then
+                set_state(STATE_NM);
             elseif (was_recently_gazed(gaze.stable_name)) then
                 set_state(STATE_CLICKED);
             else
@@ -259,25 +341,34 @@ local function update_target_state()
     end
 end
 
-local function copy_current_profile()
+local function activate_current_link()
     if (gaze.stable_key == 'idle') then
         return;
     end
 
     -- Re-read the live target so a delayed visual state can never copy
-    -- the wrong player's profile during rapid target changes.
-    local live = get_player_target();
-    if (live == nil or live.key ~= gaze.stable_key) then
+    -- a link for a target that has already changed.
+    local live = get_supported_target();
+    if (live == nil or live.key ~= gaze.stable_key or live.kind ~= gaze.stable_kind) then
         return;
     end
 
-    gaze.pending_copy = PROFILE_BASE .. live.name;
-    add_recent_gazed(live.name);
-    set_state(STATE_CLICKED);
+    if (live.kind == 'player') then
+        gaze.pending_link = { url = PROFILE_BASE .. live.name, name = live.name,
+            kind = live.kind, key = live.key, mode = gaze.settings.mode };
+        return;
+    end
+
+    if (live.kind == 'nm' or live.kind == 'ph') then
+        gaze.pending_link = { url = WIKI_BASE .. live.slug, kind = live.kind,
+            key = live.key, mode = gaze.settings.mode };
+
+        -- NMs and their PHs share the fourth eye before and after clicking.
+        set_state(STATE_NM);
+    end
 end
 
--- Create one local image primitive. No browser launch, network access,
--- packet manipulation, or gameplay commands are used by this addon.
+-- Create one local image primitive. Browser launching requires a deliberate click in mode 2.
 gaze.eye = prims.new({
     visible       = gaze.settings.visible,
     position_x    = gaze.settings.x,
@@ -292,6 +383,7 @@ gaze.eye = prims.new({
     color         = 0xFFFFFFFF,
 });
 
+ensure_mode_settings();
 ensure_recent_settings();
 trim_recent_list();
 set_state(STATE_IDLE);
@@ -302,6 +394,7 @@ settings.register('settings', 'settings_update', function (s)
         gaze.settings = s;
     end
 
+    ensure_mode_settings();
     ensure_recent_settings();
     trim_recent_list();
     apply_settings();
@@ -315,11 +408,22 @@ ashita.events.register('d3d_present', 'present_cb', function ()
 
     update_target_state();
 
-    -- Clipboard write happens during the normal render callback rather than
-    -- launching or calling any native external process.
-    if (gaze.pending_copy ~= nil) then
-        imgui.SetClipboardText(gaze.pending_copy);
-        gaze.pending_copy = nil;
+    -- Consume each deliberate click once, using the mode selected at click time.
+    if (gaze.pending_link ~= nil) then
+        local pending = gaze.pending_link;
+        gaze.pending_link = nil;
+        local success = true;
+        if (pending.mode == 2) then
+            success = open_browser(pending.url);
+        else
+            imgui.SetClipboardText(pending.url);
+        end
+        if (success and pending.kind == 'player') then
+            add_recent_gazed(pending.name);
+            if (gaze.stable_key == pending.key) then
+                set_state(STATE_CLICKED);
+            end
+        end
     end
 end);
 
@@ -385,7 +489,7 @@ ashita.events.register('mouse', 'mouse_cb', function (e)
             e.blocked = true;
 
             if (hit) then
-                copy_current_profile();
+                activate_current_link();
             end
         end
     end
@@ -413,6 +517,22 @@ ashita.events.register('command', 'command_cb', function (e)
     end
 
     local sub = args[2]:lower();
+
+    -- /gaze mode [1|2]
+    if (sub == 'mode') then
+        if (#args > 3 or (#args == 3 and args[3] ~= '1' and args[3] ~= '2')) then
+            print(chat.header('Gaze'):append(chat.error('Use /gaze mode 1 or /gaze mode 2.')));
+            return;
+        end
+        if (#args == 3) then
+            gaze.settings.mode = tonumber(args[3]);
+            settings.save();
+        end
+        ensure_mode_settings();
+        print(chat.header('Gaze'):append(chat.message(('Mode %d: %s'):fmt(
+            gaze.settings.mode, gaze.settings.mode == 2 and 'Open browser' or 'Copy to clipboard'))));
+        return;
+    end
 
     -- /gaze move
     if (sub == 'move') then
@@ -462,6 +582,17 @@ ashita.events.register('command', 'command_cb', function (e)
         return;
     end
 
+    -- /gaze clear
+    if (sub == 'clear') then
+        gaze.settings.recent_gazed = T{};
+        settings.save();
+        if (gaze.stable_kind == 'player' and gaze.stable_key ~= 'idle') then
+            set_state(STATE_PLAYER);
+        end
+        print(chat.header('Gaze'):append(chat.message('Recent-player history cleared.')));
+        return;
+    end
+
     -- /gaze recent 1-18
     if (sub == 'recent') then
         if (#args < 3) then
@@ -508,9 +639,11 @@ ashita.events.register('command', 'command_cb', function (e)
     -- /gaze help
     if (sub == 'help') then
         print(chat.header('Gaze'):append(chat.message('/gaze - show or hide the eye.')));
+        print(chat.header('Gaze'):append(chat.message('/gaze mode 1|2 - clipboard (default) or browser.')));
         print(chat.header('Gaze'):append(chat.message('/gaze move - toggle drag mode.')));
         print(chat.header('Gaze'):append(chat.message('/gaze size 1-3 - set eye size.')));
         print(chat.header('Gaze'):append(chat.message('/gaze recent 1-18 - set recent-gazed memory.')));
+        print(chat.header('Gaze'):append(chat.message('/gaze clear - clear recent-player history.')));
         print(chat.header('Gaze'):append(chat.message('/gaze reset - reset position and size.')));
         return;
     end
