@@ -1,5 +1,5 @@
 -- Phoenix wiki PH -> NM lookup, updated 2026-10-04.
--- Partial: 305 IDs / 228 NMs. Full entity ServerId keys.
+-- Partial: 308 IDs / 230 NMs. Full entity ServerId keys.
 return {
     [16793645] = { nm_slug = "Serra", zone = "Bibiki Bay", placeholder_name = "Jagil" },
     [16793741] = { nm_slug = "Intulo", zone = "Bibiki Bay", placeholder_name = "Eft" },
@@ -43,12 +43,15 @@ return {
     [17203447] = { nm_slug = "Fradubio", zone = "Jugner Forest", placeholder_name = "Fraelissa" },
     [17203581] = { nm_slug = "Panzer_Percival", zone = "Jugner Forest", placeholder_name = "Stag Beetle" },
     [17203637] = { nm_slug = "Panzer_Percival", zone = "Jugner Forest", placeholder_name = "Stag Beetle" },
+    [17211536] = { nm_slug = "Stinging_Sophie", zone = "North Gustaberg", placeholder_name = "Maneating Hornet" },
+    [17211560] = { nm_slug = "Stinging_Sophie", zone = "North Gustaberg", placeholder_name = "Maneating Hornet" },
     [17211701] = { nm_slug = "Maighdean_Uaine", zone = "North Gustaberg", placeholder_name = "Walking Sapling" },
     [17215867] = { nm_slug = "Leaping_Lizzy", zone = "South Gustaberg", placeholder_name = "Rock Lizard" },
     [17219791] = { nm_slug = "Stray_Mary", zone = "Konschtat Highlands", placeholder_name = "Mad Sheep" },
     [17219885] = { nm_slug = "Rampaging_Ram", zone = "Konschtat Highlands", placeholder_name = "Tremor Ram" },
     [17219928] = { nm_slug = "Stray_Mary", zone = "Konschtat Highlands", placeholder_name = "Mad Sheep" },
     [17219987] = { nm_slug = "Rampaging_Ram", zone = "Konschtat Highlands", placeholder_name = "Tremor Ram" },
+    [17223888] = { nm_slug = "Jolly_Green", zone = "Pashhow Marshlands", placeholder_name = "Goobbue" },
     [17224014] = { nm_slug = "Bloodpool_Vorax", zone = "Pashhow Marshlands", placeholder_name = "Thread Leech" },
     [17227968] = { nm_slug = "Black_Triple_Stars", zone = "Rolanberry Fields", placeholder_name = "Midnight Wings" },
     [17227988] = { nm_slug = "Black_Triple_Stars", zone = "Rolanberry Fields", placeholder_name = "Midnight Wings" },
