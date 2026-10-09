@@ -1,5 +1,5 @@
--- Phoenix wiki PH -> NM lookup, updated 2026-10-04.
--- Partial: 308 IDs / 230 NMs. Full entity ServerId keys.
+-- Phoenix wiki PH -> NM lookup, updated 2026-10-08.
+-- Partial: 313 IDs / 234 NMs. Full entity ServerId keys.
 return {
     [16793645] = { nm_slug = "Serra", zone = "Bibiki Bay", placeholder_name = "Jagil" },
     [16793741] = { nm_slug = "Intulo", zone = "Bibiki Bay", placeholder_name = "Eft" },
@@ -72,6 +72,8 @@ return {
     [17256686] = { nm_slug = "Serpopard_Ishtar", zone = "Tahrongi Canyon", placeholder_name = "Wild Dhalmel" },
     [17260906] = { nm_slug = "Helldiver", zone = "Buburimu Peninsula", placeholder_name = "Zu" },
     [17261002] = { nm_slug = "Buburimboo", zone = "Buburimu Peninsula", placeholder_name = "Shoal Pugil" },
+    -- Added 2026-10-07: Daggerclaw Dracos, Raptor PH in Meriphataud Mountains.
+    [17264815] = { nm_slug = "Daggerclaw_Dracos", zone = "Meriphataud Mountains", placeholder_name = "Raptor" },
     [17268849] = { nm_slug = "Deadly_Dodo", zone = "Sauromugue Champaign", placeholder_name = "Tabar Beak" },
     [17276963] = { nm_slug = "Nightmare_Vase", zone = "Ro'Maeve", placeholder_name = "Magic Flagon" },
     [17276972] = { nm_slug = "Nightmare_Vase", zone = "Ro'Maeve", placeholder_name = "Magic Flagon" },
@@ -79,6 +81,8 @@ return {
     [17276991] = { nm_slug = "Nightmare_Vase", zone = "Ro'Maeve", placeholder_name = "Magic Flagon" },
     [17281148] = { nm_slug = "Mischievous_Micholas", zone = "Yuhtunga Jungle", placeholder_name = "Young Opo-Opo" },
     [17289559] = { nm_slug = "Cactuar_Cantautor", zone = "Western Altepa Desert", placeholder_name = "Cactuar" },
+    -- Added 2026-10-07: Trickster Kinetix, Dancing Weapon PH in Qufim Island.
+    [17293536] = { nm_slug = "Trickster_Kinetix", zone = "Qufim Island", placeholder_name = "Dancing Weapon" },
     [17309938] = { nm_slug = "Despot", zone = "Ru'Aun Gardens", placeholder_name = "Groundskeeper" },
     [17309939] = { nm_slug = "Despot", zone = "Ru'Aun Gardens", placeholder_name = "Groundskeeper" },
     [17309940] = { nm_slug = "Despot", zone = "Ru'Aun Gardens", placeholder_name = "Groundskeeper" },
@@ -194,6 +198,9 @@ return {
     [17404053] = { nm_slug = "Unut", zone = "The Boyahda Tree", placeholder_name = "Moss Eater" },
     [17404060] = { nm_slug = "Unut", zone = "The Boyahda Tree", placeholder_name = "Moss Eater" },
     [17404330] = { nm_slug = "Voluptuous_Vivian", zone = "The Boyahda Tree", placeholder_name = "Demonic Rose" },
+    -- Added 2026-10-08: Eurytos, Giant Gatekeeper and Giant Guard PHs in Middle Delkfutt's Tower.
+    [17420325] = { nm_slug = "Eurytos", zone = "Middle Delkfutt's Tower", placeholder_name = "Giant Gatekeeper" },
+    [17420326] = { nm_slug = "Eurytos", zone = "Middle Delkfutt's Tower", placeholder_name = "Giant Guard" },
     [17420383] = { nm_slug = "Polybotes", zone = "Middle Delkfutt's Tower", placeholder_name = "Giant Gatekeeper" },
     [17420419] = { nm_slug = "Rhoitos", zone = "Middle Delkfutt's Tower", placeholder_name = "Giant Guard" },
     [17420556] = { nm_slug = "Rhoikos", zone = "Middle Delkfutt's Tower", placeholder_name = "Gigas Quarrier" },
@@ -244,6 +251,8 @@ return {
     [17498518] = { nm_slug = "Charybdis", zone = "Sea Serpent Grotto", placeholder_name = "Devil Manta" },
     [17498521] = { nm_slug = "Charybdis", zone = "Sea Serpent Grotto", placeholder_name = "Devil Manta" },
     [17530882] = { nm_slug = "Epialtes", zone = "Lower Delkfutt's Tower", placeholder_name = "Giant Gatekeeper" },
+    -- Added 2026-10-08: Eurymedon, Giant Sentry PH in Lower Delkfutt's Tower.
+    [17531118] = { nm_slug = "Eurymedon", zone = "Lower Delkfutt's Tower", placeholder_name = "Giant Sentry" },
     [17547275] = { nm_slug = "Gabblox_Magpietongue", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Armorer" },
     [17547289] = { nm_slug = "Tufflix_Loglimbs", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Armorer" },
     [17547292] = { nm_slug = "Cloktix_Longnail", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Armorer" },
