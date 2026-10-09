@@ -1,16 +1,30 @@
 -- Phoenix wiki PH -> NM lookup, updated 2026-10-08.
--- Partial: 313 IDs / 234 NMs. Full entity ServerId keys.
+-- Partial: 387 IDs / 285 NMs. Full entity ServerId keys.
 return {
+    -- Added 2026-10-08: Orctrap placeholder.
+    [16785675] = { nm_slug = "Orctrap", zone = "Carpenters' Landing", placeholder_name = "Birdtrap" },
     [16793645] = { nm_slug = "Serra", zone = "Bibiki Bay", placeholder_name = "Jagil" },
     [16793741] = { nm_slug = "Intulo", zone = "Bibiki Bay", placeholder_name = "Eft" },
     [16798055] = { nm_slug = "Bonnacon", zone = "Uleguerand Range", placeholder_name = "Buffalo" },
+    -- Added 2026-10-08: Citipati placeholder.
+    [16806161] = { nm_slug = "Citipati", zone = "Attohwa Chasm", placeholder_name = "Corse" },
     [16806171] = { nm_slug = "Ambusher_Antlion", zone = "Attohwa Chasm", placeholder_name = "Trench Antlion" },
+    -- Added 2026-10-08: Bugbear Strongman placeholder.
+    [16822422] = { nm_slug = "Bugbear_Strongman", zone = "Oldton Movalpolos", placeholder_name = "Bugbear Bondman Noroam" },
+    -- Added 2026-10-08: Bugbear Strongman placeholder.
+    [16822426] = { nm_slug = "Bugbear_Strongman", zone = "Oldton Movalpolos", placeholder_name = "Bugbear Bondman Noroam" },
     [16826507] = { nm_slug = "Swashstox_Beadblinker", zone = "Newton Movalpolos", placeholder_name = "Goblin Swordsman" },
     [16826514] = { nm_slug = "Swashstox_Beadblinker", zone = "Newton Movalpolos", placeholder_name = "Goblin Swordsman" },
     [16875711] = { nm_slug = "Megalobugard", zone = "Lufaise Meadows", placeholder_name = "Gigantobugard" },
     [16875720] = { nm_slug = "Megalobugard", zone = "Lufaise Meadows", placeholder_name = "Gigantobugard" },
     [16875739] = { nm_slug = "Megalobugard", zone = "Lufaise Meadows", placeholder_name = "Gigantobugard" },
+    -- Added 2026-10-08: Imdugud placeholder.
+    [16896106] = { nm_slug = "Imdugud", zone = "Riverne - Site #B01", placeholder_name = "Nimbus Hippogryph" },
     [16900305] = { nm_slug = "Aiatar", zone = "Riverne - Site #A01", placeholder_name = "Flamedrake" },
+    -- Added 2026-10-08: Woodnix Shrillwhistle placeholder.
+    [16941060] = { nm_slug = "Woodnix_Shrillwhistle", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Pathfinder" },
+    -- Added 2026-10-08: Shamblix Rottenheart placeholder.
+    [16941078] = { nm_slug = "Shamblix_Rottenheart", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Tinkerer" },
     [16941089] = { nm_slug = "Gosspix_Blabberlips", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Enchanter" },
     [16941103] = { nm_slug = "Flamecaller_Zoeqdoq", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Mesmerizer" },
     [16941113] = { nm_slug = "Elvaansticker_Bxafraff", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Impaler" },
@@ -18,6 +32,8 @@ return {
     [16941127] = { nm_slug = "Lyncean_Juwgneg", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Predator" },
     [16941139] = { nm_slug = "QuPho_Bloodspiller", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Vindicator" },
     [16941142] = { nm_slug = "GiBhe_Fleshfeaster", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Constable" },
+    -- Added 2026-10-08: VaRhu Bodysnatcher placeholder.
+    [16941161] = { nm_slug = "VaRhu_Bodysnatcher", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Purloiner" },
     [16941162] = { nm_slug = "TeZha_Ironclad", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Defender" },
     [16941184] = { nm_slug = "Ree_Nata_The_Melomanic", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Chanter" },
     [16941185] = { nm_slug = "Koo_Rahi_The_Levinblade", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Persecutor" },
@@ -25,6 +41,8 @@ return {
     [16941203] = { nm_slug = "Baa_Dava_The_Bibliophage", zone = "Dynamis - Buburimu", placeholder_name = "Vanguard Oracle" },
     [16986196] = { nm_slug = "Zoraal_Jas_Pkuucha", zone = "Wajaom Woodlands", placeholder_name = "Lesser Colibri" },
     [16986377] = { nm_slug = "Jaded_Jody", zone = "Wajaom Woodlands", placeholder_name = "Great Ameretat" },
+    -- Added 2026-10-08: Emergent Elm placeholder.
+    [16990374] = { nm_slug = "Emergent_Elm", zone = "Bhaflau Thickets", placeholder_name = "Olden Treant" },
     [16998654] = { nm_slug = "Bloody_Bones", zone = "Arrapago Reef", placeholder_name = "Draugar Servant" },
     [17027146] = { nm_slug = "Energetic_Eruca", zone = "Mount Zhayolm", placeholder_name = "Magmatic Eruca" },
     [17043553] = { nm_slug = "Zizzy_Zillah", zone = "Mamook", placeholder_name = "Ziz" },
@@ -32,8 +50,20 @@ return {
     [17100873] = { nm_slug = "Peallaidh", zone = "Caedarva Mire", placeholder_name = "Wild Karakul" },
     [17187026] = { nm_slug = "Fungus_Beetle", zone = "West Ronfaure", placeholder_name = "Scarab Beetle" },
     [17187110] = { nm_slug = "Jaggedy-Eared_Jack", zone = "West Ronfaure", placeholder_name = "Forest Hare" },
+    -- Added 2026-10-08: Swamfisk placeholder.
+    [17191187] = { nm_slug = "Swamfisk", zone = "East Ronfaure", placeholder_name = "Pugil" },
+    -- Added 2026-10-08: Swamfisk placeholder.
+    [17191188] = { nm_slug = "Swamfisk", zone = "East Ronfaure", placeholder_name = "Pugil" },
     [17191194] = { nm_slug = "Bigmouth_Billy", zone = "East Ronfaure", placeholder_name = "Carrion Worm" },
     [17191195] = { nm_slug = "Bigmouth_Billy", zone = "East Ronfaure", placeholder_name = "Carrion Worm" },
+    -- Added 2026-10-08: Swamfisk placeholder.
+    [17191287] = { nm_slug = "Swamfisk", zone = "East Ronfaure", placeholder_name = "Pugil" },
+    -- Added 2026-10-08: Swamfisk placeholder.
+    [17191288] = { nm_slug = "Swamfisk", zone = "East Ronfaure", placeholder_name = "Pugil" },
+    -- Added 2026-10-08: Swamfisk placeholder.
+    [17191289] = { nm_slug = "Swamfisk", zone = "East Ronfaure", placeholder_name = "Pugil" },
+    -- Added 2026-10-08: Swamfisk placeholder.
+    [17191290] = { nm_slug = "Swamfisk", zone = "East Ronfaure", placeholder_name = "Pugil" },
     [17195143] = { nm_slug = "Lumbering_Lambert", zone = "La Theine Plateau", placeholder_name = "Battering Ram" },
     [17195258] = { nm_slug = "Tumbling_Truffle", zone = "La Theine Plateau", placeholder_name = "Poison Funguar" },
     [17195316] = { nm_slug = "Lumbering_Lambert", zone = "La Theine Plateau", placeholder_name = "Battering Ram" },
@@ -43,12 +73,18 @@ return {
     [17203447] = { nm_slug = "Fradubio", zone = "Jugner Forest", placeholder_name = "Fraelissa" },
     [17203581] = { nm_slug = "Panzer_Percival", zone = "Jugner Forest", placeholder_name = "Stag Beetle" },
     [17203637] = { nm_slug = "Panzer_Percival", zone = "Jugner Forest", placeholder_name = "Stag Beetle" },
+    -- Added 2026-10-08: Tottering Toby placeholder.
+    [17207449] = { nm_slug = "Tottering_Toby", zone = "Batallia Downs", placeholder_name = "Stalking Sapling" },
     [17211536] = { nm_slug = "Stinging_Sophie", zone = "North Gustaberg", placeholder_name = "Maneating Hornet" },
     [17211560] = { nm_slug = "Stinging_Sophie", zone = "North Gustaberg", placeholder_name = "Maneating Hornet" },
     [17211701] = { nm_slug = "Maighdean_Uaine", zone = "North Gustaberg", placeholder_name = "Walking Sapling" },
+    -- Added 2026-10-08: Carnero placeholder.
+    [17215612] = { nm_slug = "Carnero", zone = "South Gustaberg", placeholder_name = "Ornery Sheep" },
     [17215867] = { nm_slug = "Leaping_Lizzy", zone = "South Gustaberg", placeholder_name = "Rock Lizard" },
     [17219791] = { nm_slug = "Stray_Mary", zone = "Konschtat Highlands", placeholder_name = "Mad Sheep" },
     [17219885] = { nm_slug = "Rampaging_Ram", zone = "Konschtat Highlands", placeholder_name = "Tremor Ram" },
+    -- Added 2026-10-08: Steelfleece Baldarich placeholder.
+    [17219886] = { nm_slug = "Steelfleece_Baldarich", zone = "Konschtat Highlands", placeholder_name = "Rampaging Ram" },
     [17219928] = { nm_slug = "Stray_Mary", zone = "Konschtat Highlands", placeholder_name = "Mad Sheep" },
     [17219987] = { nm_slug = "Rampaging_Ram", zone = "Konschtat Highlands", placeholder_name = "Tremor Ram" },
     [17223888] = { nm_slug = "Jolly_Green", zone = "Pashhow Marshlands", placeholder_name = "Goobbue" },
@@ -57,6 +93,8 @@ return {
     [17227988] = { nm_slug = "Black_Triple_Stars", zone = "Rolanberry Fields", placeholder_name = "Midnight Wings" },
     [17228235] = { nm_slug = "Drooling_Daisy", zone = "Rolanberry Fields", placeholder_name = "Ochu" },
     [17231970] = { nm_slug = "Nue", zone = "Beaucedine Glacier", placeholder_name = "Tundra Tiger" },
+    -- Added 2026-10-08: Kirata placeholder.
+    [17232043] = { nm_slug = "Kirata", zone = "Beaucedine Glacier", placeholder_name = "Tundra Tiger" },
     [17232078] = { nm_slug = "Gargantua", zone = "Beaucedine Glacier", placeholder_name = "Stone Golem" },
     [17236174] = { nm_slug = "Shadow_Eye", zone = "Xarcabard", placeholder_name = "Evil Eye" },
     [17240371] = { nm_slug = "Frostmane", zone = "Cape Teriggan", placeholder_name = "Greater Manticore" },
@@ -67,6 +105,8 @@ return {
     [17248467] = { nm_slug = "Tom_Tit_Tat", zone = "West Sarutabaruta", placeholder_name = "Mandragora" },
     [17248485] = { nm_slug = "Tom_Tit_Tat", zone = "West Sarutabaruta", placeholder_name = "Mandragora" },
     [17248516] = { nm_slug = "Nunyenunc", zone = "West Sarutabaruta", placeholder_name = "Carrion Crow" },
+    -- Added 2026-10-08: Sharp-Eared Ropipi placeholder.
+    [17252488] = { nm_slug = "Sharp-Eared_Ropipi", zone = "East Sarutabaruta", placeholder_name = "Savanna Rarab" },
     [17252656] = { nm_slug = "Spiny_Spipi", zone = "East Sarutabaruta", placeholder_name = "Crawler" },
     [17256560] = { nm_slug = "Serpopard_Ishtar", zone = "Tahrongi Canyon", placeholder_name = "Wild Dhalmel" },
     [17256686] = { nm_slug = "Serpopard_Ishtar", zone = "Tahrongi Canyon", placeholder_name = "Wild Dhalmel" },
@@ -75,11 +115,15 @@ return {
     -- Added 2026-10-07: Daggerclaw Dracos, Raptor PH in Meriphataud Mountains.
     [17264815] = { nm_slug = "Daggerclaw_Dracos", zone = "Meriphataud Mountains", placeholder_name = "Raptor" },
     [17268849] = { nm_slug = "Deadly_Dodo", zone = "Sauromugue Champaign", placeholder_name = "Tabar Beak" },
+    -- Added 2026-10-08: Keeper Of Halidom placeholder.
+    [17272977] = { nm_slug = "Keeper_Of_Halidom", zone = "The Sanctuary of Zi'Tah", placeholder_name = "Goobbue Gardener" },
     [17276963] = { nm_slug = "Nightmare_Vase", zone = "Ro'Maeve", placeholder_name = "Magic Flagon" },
     [17276972] = { nm_slug = "Nightmare_Vase", zone = "Ro'Maeve", placeholder_name = "Magic Flagon" },
     [17276981] = { nm_slug = "Nightmare_Vase", zone = "Ro'Maeve", placeholder_name = "Magic Flagon" },
     [17276991] = { nm_slug = "Nightmare_Vase", zone = "Ro'Maeve", placeholder_name = "Magic Flagon" },
     [17281148] = { nm_slug = "Mischievous_Micholas", zone = "Yuhtunga Jungle", placeholder_name = "Young Opo-Opo" },
+    -- Added 2026-10-08: Celphie placeholder.
+    [17289452] = { nm_slug = "Celphie", zone = "Western Altepa Desert", placeholder_name = "Desert Dhalmel" },
     [17289559] = { nm_slug = "Cactuar_Cantautor", zone = "Western Altepa Desert", placeholder_name = "Cactuar" },
     -- Added 2026-10-07: Trickster Kinetix, Dancing Weapon PH in Qufim Island.
     [17293536] = { nm_slug = "Trickster_Kinetix", zone = "Qufim Island", placeholder_name = "Dancing Weapon" },
@@ -107,8 +151,12 @@ return {
     [17326150] = { nm_slug = "NuBhi_Spiraleye", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Minstrel" },
     [17326153] = { nm_slug = "DeBho_Pyrohand", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Thaumaturge" },
     [17326157] = { nm_slug = "GoTyo_Magenapper", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Drakekeeper" },
+    -- Added 2026-10-08: SoZho Metalbender placeholder.
+    [17326167] = { nm_slug = "SoZho_Metalbender", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Militant" },
     [17326171] = { nm_slug = "MuGha_Legionkiller", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Defender" },
     [17326177] = { nm_slug = "SoGho_Adderhandler", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Beasttender" },
+    -- Added 2026-10-08: GuKhu Dukesniper placeholder.
+    [17326184] = { nm_slug = "GuKhu_Dukesniper", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Mason" },
     [17326189] = { nm_slug = "JiKhu_Towercleaver", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Hatamoto" },
     [17326194] = { nm_slug = "MiRhe_Whisperblade", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Kusa" },
     [17326199] = { nm_slug = "BeZhe_Keeprazer", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Undertaker" },
@@ -127,15 +175,23 @@ return {
     [17326263] = { nm_slug = "Mithraslaver_Debhabob", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Hawker" },
     [17326267] = { nm_slug = "Ultrasonic_Zeknajak", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Bugler" },
     [17326271] = { nm_slug = "Drakefeast_Wubmfub", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Impaler" },
+    -- Added 2026-10-08: Foo Peku The Bloodcloak placeholder.
+    [17326282] = { nm_slug = "Foo_Peku_The_Bloodcloak", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Skirmisher" },
     [17326288] = { nm_slug = "Xaa_Chau_The_Roctalon", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Sentinel" },
     [17326294] = { nm_slug = "Koo_Saxu_The_Everfast", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Priest" },
     [17326298] = { nm_slug = "Bhuu_Wjato_The_Firepool", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Prelate" },
     [17326302] = { nm_slug = "Caa_Xaza_The_Madpiercer", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Visionary" },
     [17326305] = { nm_slug = "Maa_Zaua_The_Wyrmkeeper", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Partisan" },
     [17326311] = { nm_slug = "Ryy_Qihi_The_Idolrobber", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Liberator" },
+    -- Added 2026-10-08: Guu Waji The Preacher placeholder.
+    [17326318] = { nm_slug = "Guu_Waji_The_Preacher", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Exemplar" },
     [17326321] = { nm_slug = "Nee_Huxa_The_Judgmental", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Inciter" },
     [17326324] = { nm_slug = "Kuu_Xuka_The_Nimble", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Assassin" },
     [17326326] = { nm_slug = "Soo_Jopo_The_Fiendking", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Ogresoother" },
+    -- Added 2026-10-08: Xhoo Fuza The Sublime placeholder.
+    [17326334] = { nm_slug = "Xhoo_Fuza_The_Sublime", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Chanter" },
+    -- Added 2026-10-08: Hee Mida The Meticulous placeholder.
+    [17326338] = { nm_slug = "Hee_Mida_The_Meticulous", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Salvager" },
     [17326343] = { nm_slug = "Knii_Hoqo_The_Bisector", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Persecutor" },
     [17326345] = { nm_slug = "Puu_Timu_The_Phantasmal", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Oracle" },
     [17326372] = { nm_slug = "Moltenox_Stubthumbs", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Smithy" },
@@ -144,6 +200,8 @@ return {
     [17326395] = { nm_slug = "Ascetox_Ratgums", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Shaman" },
     [17326400] = { nm_slug = "Gibberox_Pimplebeak", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Enchanter" },
     [17326403] = { nm_slug = "Swypestix_Tigershins", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Hitman" },
+    -- Added 2026-10-08: Bordox Kittyback placeholder.
+    [17326408] = { nm_slug = "Bordox_Kittyback", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Welldigger" },
     [17326413] = { nm_slug = "Ruffbix_Jumbolobes", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Armorer" },
     [17326419] = { nm_slug = "Draklix_Scalecrust", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Dragontamer" },
     [17326425] = { nm_slug = "Tocktix_Thinlids", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Tinkerer" },
@@ -153,6 +211,10 @@ return {
     [17326457] = { nm_slug = "Slinkix_Trufflesniff", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Ambusher" },
     [17326461] = { nm_slug = "Shisox_Widebrow", zone = "Dynamis - Beaucedine", placeholder_name = "Vanguard Ronin" },
     [17330222] = { nm_slug = "Marquis_Decarabia", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Bard" },
+    -- Added 2026-10-08: Duke Gomory placeholder.
+    [17330303] = { nm_slug = "Duke_Gomory", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Monk" },
+    -- Added 2026-10-08: Count Raum placeholder.
+    [17330314] = { nm_slug = "Count_Raum", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Thief" },
     [17330331] = { nm_slug = "Prince_Seere", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred White Mage" },
     [17330333] = { nm_slug = "Marquis_Orias", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Black Mage" },
     [17330352] = { nm_slug = "Duke_Berith", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Red Mage" },
@@ -162,8 +224,16 @@ return {
     [17330414] = { nm_slug = "Marquis_Cimeries", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Ranger" },
     [17330418] = { nm_slug = "King_Zagan", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Dragoon" },
     [17330427] = { nm_slug = "Duke_Scox", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Dark Knight" },
+    -- Added 2026-10-08: Count Vine placeholder.
+    [17330439] = { nm_slug = "Count_Vine", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Samurai" },
     [17330450] = { nm_slug = "Marquis_Gamygyn", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Ninja" },
     [17330479] = { nm_slug = "Marquis_Nebiros", zone = "Dynamis - Xarcabard", placeholder_name = "Kindred Summoner" },
+    -- Added 2026-10-08: Thousandarm Deshglesh placeholder.
+    [17350823] = { nm_slug = "Thousandarm_Deshglesh", zone = "Ghelsba Outpost", placeholder_name = "Orcish Grunt" },
+    -- Added 2026-10-08: Thousandarm Deshglesh placeholder.
+    [17350824] = { nm_slug = "Thousandarm_Deshglesh", zone = "Ghelsba Outpost", placeholder_name = "Orcish Stonechucker" },
+    -- Added 2026-10-08: Thousandarm Deshglesh placeholder.
+    [17350825] = { nm_slug = "Thousandarm_Deshglesh", zone = "Ghelsba Outpost", placeholder_name = "Orcish Neckchopper" },
     [17354825] = { nm_slug = "Hundredscar_Hajwaj", zone = "Fort Ghelsba", placeholder_name = "Orcish Grappler" },
     [17358928] = { nm_slug = "Ashmaker_Gotblut", zone = "Yughott Grotto", placeholder_name = "Orcish Grunt" },
     [17358929] = { nm_slug = "Ashmaker_Gotblut", zone = "Yughott Grotto", placeholder_name = "Orcish Stonechucker" },
@@ -186,6 +256,8 @@ return {
     [17387919] = { nm_slug = "Blubbery_Bulge", zone = "Davoi", placeholder_name = "Davoi Mush" },
     [17395798] = { nm_slug = "Mee_Deggi_The_Punisher", zone = "Castle Oztroja", placeholder_name = "Yagudo Drummer" },
     [17395799] = { nm_slug = "Mee_Deggi_The_Punisher", zone = "Castle Oztroja", placeholder_name = "Yagudo Interrogator" },
+    -- Added 2026-10-08: Moo Ouzi The Swiftblade placeholder.
+    [17395813] = { nm_slug = "Moo_Ouzi_The_Swiftblade", zone = "Castle Oztroja", placeholder_name = "Yagudo Theologist" },
     [17395867] = { nm_slug = "Quu_Domi_The_Gallant", zone = "Castle Oztroja", placeholder_name = "Yagudo Herald" },
     [17395868] = { nm_slug = "Quu_Domi_The_Gallant", zone = "Castle Oztroja", placeholder_name = "Yagudo Oracle" },
     [17395950] = { nm_slug = "Yaa_Haqa_The_Profane", zone = "Castle Oztroja", placeholder_name = "Yagudo Zealot" },
@@ -197,19 +269,37 @@ return {
     [17404043] = { nm_slug = "Unut", zone = "The Boyahda Tree", placeholder_name = "Moss Eater" },
     [17404053] = { nm_slug = "Unut", zone = "The Boyahda Tree", placeholder_name = "Moss Eater" },
     [17404060] = { nm_slug = "Unut", zone = "The Boyahda Tree", placeholder_name = "Moss Eater" },
+    -- Added 2026-10-08: Leshonki placeholder.
+    [17404292] = { nm_slug = "Leshonki", zone = "The Boyahda Tree", placeholder_name = "Boyahda Sapling" },
+    -- Added 2026-10-08: Leshonki placeholder.
+    [17404294] = { nm_slug = "Leshonki", zone = "The Boyahda Tree", placeholder_name = "Boyahda Sapling" },
+    -- Added 2026-10-08: Leshonki placeholder.
+    [17404296] = { nm_slug = "Leshonki", zone = "The Boyahda Tree", placeholder_name = "Boyahda Sapling" },
+    -- Added 2026-10-08: Leshonki placeholder.
+    [17404301] = { nm_slug = "Leshonki", zone = "The Boyahda Tree", placeholder_name = "Boyahda Sapling" },
+    -- Added 2026-10-08: Leshonki placeholder.
+    [17404304] = { nm_slug = "Leshonki", zone = "The Boyahda Tree", placeholder_name = "Boyahda Sapling" },
     [17404330] = { nm_slug = "Voluptuous_Vivian", zone = "The Boyahda Tree", placeholder_name = "Demonic Rose" },
     -- Added 2026-10-08: Eurytos, Giant Gatekeeper and Giant Guard PHs in Middle Delkfutt's Tower.
     [17420325] = { nm_slug = "Eurytos", zone = "Middle Delkfutt's Tower", placeholder_name = "Giant Gatekeeper" },
     [17420326] = { nm_slug = "Eurytos", zone = "Middle Delkfutt's Tower", placeholder_name = "Giant Guard" },
     [17420383] = { nm_slug = "Polybotes", zone = "Middle Delkfutt's Tower", placeholder_name = "Giant Gatekeeper" },
     [17420419] = { nm_slug = "Rhoitos", zone = "Middle Delkfutt's Tower", placeholder_name = "Giant Guard" },
+    -- Added 2026-10-08: Ophion placeholder.
+    [17420527] = { nm_slug = "Ophion", zone = "Middle Delkfutt's Tower", placeholder_name = "Gigas Kettlemaster" },
     [17420556] = { nm_slug = "Rhoikos", zone = "Middle Delkfutt's Tower", placeholder_name = "Gigas Quarrier" },
     [17420593] = { nm_slug = "Ogygos", zone = "Middle Delkfutt's Tower", placeholder_name = "Gigas Wallwatcher" },
+    -- Added 2026-10-08: Enkelados placeholder.
+    [17424388] = { nm_slug = "Enkelados", zone = "Upper Delkfutt's Tower", placeholder_name = "Gigas Bonecutter" },
+    -- Added 2026-10-08: Enkelados placeholder.
+    [17424426] = { nm_slug = "Enkelados", zone = "Upper Delkfutt's Tower", placeholder_name = "Gigas Bonecutter" },
     [17424474] = { nm_slug = "Ixtab", zone = "Upper Delkfutt's Tower", placeholder_name = "Phasma UDT" },
     [17424511] = { nm_slug = "Ixtab", zone = "Upper Delkfutt's Tower", placeholder_name = "Phasma UDT" },
     [17428551] = { nm_slug = "Sozu_Sarberry", zone = "Temple of Uggalepih", placeholder_name = "Tonberry Cutter" },
     [17428608] = { nm_slug = "Sozu_Terberry", zone = "Temple of Uggalepih", placeholder_name = "Tonberry Harrier" },
     [17428675] = { nm_slug = "Tonberry_Kinq", zone = "Temple of Uggalepih", placeholder_name = "Tonberry Dismayer" },
+    -- Added 2026-10-08: Flauros placeholder.
+    [17428741] = { nm_slug = "Flauros", zone = "Temple of Uggalepih", placeholder_name = "Torama" },
     [17432622] = { nm_slug = "Celeste-Eyed_Tozberry", zone = "Den of Rancor", placeholder_name = "Tonberry Trailer" },
     [17432638] = { nm_slug = "Friar_Rush", zone = "Den of Rancor", placeholder_name = "Bifrons DoR" },
     [17432662] = { nm_slug = "Carmine-Tailed_Janberry", zone = "Den of Rancor", placeholder_name = "Tonberry Imprecator" },
@@ -223,7 +313,19 @@ return {
     [17440973] = { nm_slug = "Viscount_Morax", zone = "Castle Zvahl Keep", placeholder_name = "Demon Warlock" },
     [17440985] = { nm_slug = "Baronet_Romwe", zone = "Castle Zvahl Keep", placeholder_name = "Demon Pawn" },
     [17461306] = { nm_slug = "Sewer_Syrup", zone = "Bostaunieux Oubliette", placeholder_name = "Mousse" },
+    -- Added 2026-10-08: Shii placeholder.
+    [17461310] = { nm_slug = "Shii", zone = "Bostaunieux Oubliette", placeholder_name = "Garm BO" },
+    -- Added 2026-10-08: Shii placeholder.
+    [17461314] = { nm_slug = "Shii", zone = "Bostaunieux Oubliette", placeholder_name = "Garm BO" },
     [17461432] = { nm_slug = "Arioch", zone = "Bostaunieux Oubliette", placeholder_name = "Werebat" },
+    -- Added 2026-10-08: Manes placeholder.
+    [17461470] = { nm_slug = "Manes", zone = "Bostaunieux Oubliette", placeholder_name = "Gespenst" },
+    -- Added 2026-10-08: Manes placeholder.
+    [17461477] = { nm_slug = "Manes", zone = "Bostaunieux Oubliette", placeholder_name = "Gespenst" },
+    -- Added 2026-10-08: Cargo Crab Colin placeholder.
+    [17486002] = { nm_slug = "Cargo_Crab_Colin", zone = "Korroloka Tunnel", placeholder_name = "Clipper" },
+    -- Added 2026-10-08: Cargo Crab Colin placeholder.
+    [17486004] = { nm_slug = "Cargo_Crab_Colin", zone = "Korroloka Tunnel", placeholder_name = "Clipper" },
     [17486030] = { nm_slug = "Falcatus_Aranei", zone = "Korroloka Tunnel", placeholder_name = "Huge Spider" },
     [17486035] = { nm_slug = "Falcatus_Aranei", zone = "Korroloka Tunnel", placeholder_name = "Huge Spider" },
     [17486128] = { nm_slug = "Dame_Blanche", zone = "Korroloka Tunnel", placeholder_name = "Bogy" },
@@ -231,15 +333,31 @@ return {
     [17489986] = { nm_slug = "Sabotender_Mariachi", zone = "Kuftal Tunnel", placeholder_name = "Sabotender Sediendo" },
     [17490002] = { nm_slug = "Amemet", zone = "Kuftal Tunnel", placeholder_name = "Sand Lizard" },
     [17490015] = { nm_slug = "Amemet", zone = "Kuftal Tunnel", placeholder_name = "Sand Lizard" },
+    -- Added 2026-10-08: Pelican placeholder.
+    [17490100] = { nm_slug = "Pelican", zone = "Kuftal Tunnel", placeholder_name = "Greater Cockatrice" },
     [17490158] = { nm_slug = "Bloodthirster_Madkix", zone = "Kuftal Tunnel", placeholder_name = "Goblin Mercenary" },
+    -- Added 2026-10-08: Yowie placeholder.
+    [17490201] = { nm_slug = "Yowie", zone = "Kuftal Tunnel", placeholder_name = "Deinonychus" },
+    -- Added 2026-10-08: Yowie placeholder.
+    [17490203] = { nm_slug = "Yowie", zone = "Kuftal Tunnel", placeholder_name = "Deinonychus" },
     [17490212] = { nm_slug = "Arachne", zone = "Kuftal Tunnel", placeholder_name = "Recluse Spider" },
     [17490216] = { nm_slug = "Arachne", zone = "Kuftal Tunnel", placeholder_name = "Recluse Spider" },
     [17490220] = { nm_slug = "Arachne", zone = "Kuftal Tunnel", placeholder_name = "Recluse Spider" },
     [17498156] = { nm_slug = "Masan", zone = "Sea Serpent Grotto", placeholder_name = "Royal Leech" },
     [17498178] = { nm_slug = "Namtar", zone = "Sea Serpent Grotto", placeholder_name = "Ghast Blm" },
     [17498183] = { nm_slug = "Namtar", zone = "Sea Serpent Grotto", placeholder_name = "Ghast Blm" },
+    -- Added 2026-10-08: Wuur The Sandcomber placeholder.
+    [17498196] = { nm_slug = "Wuur_The_Sandcomber", zone = "Sea Serpent Grotto", placeholder_name = "Spring Sahagin" },
+    -- Added 2026-10-08: Fyuu The Seabellow placeholder.
+    [17498259] = { nm_slug = "Fyuu_The_Seabellow", zone = "Sea Serpent Grotto", placeholder_name = "Riparian Sahagin" },
+    -- Added 2026-10-08: Fyuu The Seabellow placeholder.
+    [17498266] = { nm_slug = "Fyuu_The_Seabellow", zone = "Sea Serpent Grotto", placeholder_name = "Riparian Sahagin" },
     [17498280] = { nm_slug = "Qull_The_Shellbuster", zone = "Sea Serpent Grotto", placeholder_name = "Brook Sahagin" },
     [17498283] = { nm_slug = "Qull_The_Shellbuster", zone = "Sea Serpent Grotto", placeholder_name = "Brook Sahagin" },
+    -- Added 2026-10-08: Seww The Squidlimbed placeholder.
+    [17498298] = { nm_slug = "Seww_The_Squidlimbed", zone = "Sea Serpent Grotto", placeholder_name = "Riparian Sahagin" },
+    -- Added 2026-10-08: Pahh The Gullcaller placeholder.
+    [17498336] = { nm_slug = "Pahh_The_Gullcaller", zone = "Sea Serpent Grotto", placeholder_name = "Swamp Sahagin" },
     [17498355] = { nm_slug = "Mouu_The_Waverider", zone = "Sea Serpent Grotto", placeholder_name = "Bog Sahagin" },
     [17498410] = { nm_slug = "Worr_The_Clawfisted", zone = "Sea Serpent Grotto", placeholder_name = "Marsh Sahagin" },
     [17498418] = { nm_slug = "Sea_Hog", zone = "Sea Serpent Grotto", placeholder_name = "Razorjaw Pugil" },
@@ -247,15 +365,23 @@ return {
     [17498426] = { nm_slug = "Voll_The_Sharkfinned", zone = "Sea Serpent Grotto", placeholder_name = "Marsh Sahagin" },
     [17498434] = { nm_slug = "Yarr_The_Pearleyed", zone = "Sea Serpent Grotto", placeholder_name = "Lagoon Sahagin" },
     [17498444] = { nm_slug = "Novv_The_Whitehearted", zone = "Sea Serpent Grotto", placeholder_name = "Lagoon Sahagin" },
+    -- Added 2026-10-08: Denn The Orcavoiced placeholder.
+    [17498461] = { nm_slug = "Denn_The_Orcavoiced", zone = "Sea Serpent Grotto", placeholder_name = "Coastal Sahagin" },
     [17498513] = { nm_slug = "Zuug_The_Shoreleaper", zone = "Sea Serpent Grotto", placeholder_name = "Delta Sahagin" },
     [17498518] = { nm_slug = "Charybdis", zone = "Sea Serpent Grotto", placeholder_name = "Devil Manta" },
     [17498521] = { nm_slug = "Charybdis", zone = "Sea Serpent Grotto", placeholder_name = "Devil Manta" },
     [17530882] = { nm_slug = "Epialtes", zone = "Lower Delkfutt's Tower", placeholder_name = "Giant Gatekeeper" },
+    -- Added 2026-10-08: Hippolytos placeholder.
+    [17531001] = { nm_slug = "Hippolytos", zone = "Lower Delkfutt's Tower", placeholder_name = "Giant Guard" },
     -- Added 2026-10-08: Eurymedon, Giant Sentry PH in Lower Delkfutt's Tower.
     [17531118] = { nm_slug = "Eurymedon", zone = "Lower Delkfutt's Tower", placeholder_name = "Giant Sentry" },
     [17547275] = { nm_slug = "Gabblox_Magpietongue", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Armorer" },
     [17547289] = { nm_slug = "Tufflix_Loglimbs", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Armorer" },
     [17547292] = { nm_slug = "Cloktix_Longnail", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Armorer" },
+    -- Added 2026-10-08: Hermitrix Toothrot placeholder.
+    [17547310] = { nm_slug = "Hermitrix_Toothrot", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Enchanter" },
+    -- Added 2026-10-08: Wyrmwix Snakespecs placeholder.
+    [17547321] = { nm_slug = "Wyrmwix_Snakespecs", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Enchanter" },
     [17547452] = { nm_slug = "Rutrix_Hamgams", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Dragontamer" },
     [17547469] = { nm_slug = "Anvilix_Sootwrists", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Smithy" },
     [17547470] = { nm_slug = "Bootrix_Jaggedelbow", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Pitfighter" },
@@ -264,6 +390,8 @@ return {
     [17547477] = { nm_slug = "Jabbrox_Grannyguise", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Enchanter" },
     [17547481] = { nm_slug = "Scruffix_Shaggychest", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Armorer" },
     [17547483] = { nm_slug = "Blazox_Boneybod", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Pathfinder" },
+    -- Added 2026-10-08: Slystix Megapeepers placeholder.
+    [17547491] = { nm_slug = "Slystix_Megapeepers", zone = "Dynamis - Jeuno", placeholder_name = "Vanguard Hitman" },
     [17563783] = { nm_slug = "Slendlix_Spindlethumb", zone = "Inner Horutoto Ruins", placeholder_name = "Goblin Leecher" },
     [17576053] = { nm_slug = "Cwn_Cyrff", zone = "The Eldieme Necropolis", placeholder_name = "Tomb Wolf" },
     [17584397] = { nm_slug = "Demonic_Tiphia", zone = "Crawlers' Nest", placeholder_name = "Wespe CN" },
@@ -274,11 +402,17 @@ return {
     [17613050] = { nm_slug = "Goliath", zone = "Fei'Yin", placeholder_name = "Colossus" },
     [17613052] = { nm_slug = "Goliath", zone = "Fei'Yin", placeholder_name = "Colossus" },
     [17613054] = { nm_slug = "Goliath", zone = "Fei'Yin", placeholder_name = "Colossus" },
+    -- Added 2026-10-08: Western Shadow placeholder.
+    [17613093] = { nm_slug = "Western_Shadow", zone = "Fei'Yin", placeholder_name = "Specter Rng" },
     [17613098] = { nm_slug = "Northern_Shadow", zone = "Fei'Yin", placeholder_name = "Specter War" },
     [17613108] = { nm_slug = "Eastern_Shadow", zone = "Fei'Yin", placeholder_name = "Specter Thf" },
     [17613117] = { nm_slug = "Southern_Shadow", zone = "Fei'Yin", placeholder_name = "Specter Blm" },
     [17616996] = { nm_slug = "Tyrannic_Tunnok", zone = "Ifrit's Cauldron", placeholder_name = "Sulfur Scorpion" },
     [17617001] = { nm_slug = "Tyrannic_Tunnok", zone = "Ifrit's Cauldron", placeholder_name = "Sulfur Scorpion" },
+    -- Added 2026-10-08: Lindwurm placeholder.
+    [17617008] = { nm_slug = "Lindwurm", zone = "Ifrit's Cauldron", placeholder_name = "Eotyrannus" },
+    -- Added 2026-10-08: Lindwurm placeholder.
+    [17617012] = { nm_slug = "Lindwurm", zone = "Ifrit's Cauldron", placeholder_name = "Eotyrannus" },
     [17617055] = { nm_slug = "Foreseer_Oramix", zone = "Ifrit's Cauldron", placeholder_name = "Goblin Alchemist" },
     [17617056] = { nm_slug = "Foreseer_Oramix", zone = "Ifrit's Cauldron", placeholder_name = "Goblin Alchemist" },
     [17617066] = { nm_slug = "Foreseer_Oramix", zone = "Ifrit's Cauldron", placeholder_name = "Goblin Alchemist" },
@@ -298,6 +432,14 @@ return {
     [17629442] = { nm_slug = "Diamond_Daig", zone = "Quicksand Caves", placeholder_name = "Helm Beetle" },
     [17629446] = { nm_slug = "Diamond_Daig", zone = "Quicksand Caves", placeholder_name = "Helm Beetle" },
     [17629480] = { nm_slug = "Antican_Tribunus", zone = "Quicksand Caves", placeholder_name = "Antican Aedilis" },
+    -- Added 2026-10-08: Triarius X-XV placeholder.
+    [17629525] = { nm_slug = "Triarius_X-XV", zone = "Quicksand Caves", placeholder_name = "Antican Triarius" },
+    -- Added 2026-10-08: Triarius X-XV placeholder.
+    [17629529] = { nm_slug = "Triarius_X-XV", zone = "Quicksand Caves", placeholder_name = "Antican Triarius" },
+    -- Added 2026-10-08: Triarius X-XV placeholder.
+    [17629533] = { nm_slug = "Triarius_X-XV", zone = "Quicksand Caves", placeholder_name = "Antican Triarius" },
+    -- Added 2026-10-08: Triarius X-XV placeholder.
+    [17629537] = { nm_slug = "Triarius_X-XV", zone = "Quicksand Caves", placeholder_name = "Antican Triarius" },
     [17629557] = { nm_slug = "Hastatus_XI-XII", zone = "Quicksand Caves", placeholder_name = "Antican Triarius" },
     [17629582] = { nm_slug = "Sabotender_Bailarina", zone = "Quicksand Caves", placeholder_name = "Spelunking Sabotender" },
     [17629586] = { nm_slug = "Sabotender_Bailarina", zone = "Quicksand Caves", placeholder_name = "Spelunking Sabotender" },
@@ -306,9 +448,15 @@ return {
     [17645633] = { nm_slug = "Wyvernpoacher_Drachlox", zone = "Gustav Tunnel", placeholder_name = "Goblin Mercenary" },
     [17645718] = { nm_slug = "Baobhan_Sith", zone = "Gustav Tunnel", placeholder_name = "Erlik" },
     [17645738] = { nm_slug = "Taxim", zone = "Gustav Tunnel", placeholder_name = "Doom Warlock" },
+    -- Added 2026-10-08: Ungur placeholder.
+    [17645754] = { nm_slug = "Ungur", zone = "Gustav Tunnel", placeholder_name = "Typhoon Wyvern" },
     [17645768] = { nm_slug = "Amikiri", zone = "Gustav Tunnel", placeholder_name = "Antares GT" },
     [17645772] = { nm_slug = "Amikiri", zone = "Gustav Tunnel", placeholder_name = "Antares GT" },
+    -- Added 2026-10-08: Ungur placeholder.
+    [17645784] = { nm_slug = "Ungur", zone = "Gustav Tunnel", placeholder_name = "Typhoon Wyvern" },
     [17649730] = { nm_slug = "Lord_Of_Onzozo", zone = "Labyrinth of Onzozo", placeholder_name = "Flying Manta" },
+    -- Added 2026-10-08: Peg Powler placeholder.
+    [17649760] = { nm_slug = "Peg_Powler", zone = "Labyrinth of Onzozo", placeholder_name = "Flying Manta" },
     [17649783] = { nm_slug = "Narasimha", zone = "Labyrinth of Onzozo", placeholder_name = "Labyrinth Manticore" },
     [17649787] = { nm_slug = "Narasimha", zone = "Labyrinth of Onzozo", placeholder_name = "Labyrinth Manticore" },
     [17649797] = { nm_slug = "Hellion", zone = "Labyrinth of Onzozo", placeholder_name = "Tainted Flesh LoO" },
