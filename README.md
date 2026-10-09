@@ -4,9 +4,18 @@
 **Platform:** Ashita 4 on Windows · Phoenix XI  
 **Code baseline:** v0.4.1
 
+## Update 10-8-2026 ##
+
+Updated placeholders.lua with 82 additional placeholder IDs covering 57 NMs since v0.4.1. Gaze now supports 387 placeholder IDs across 285 NMs, checked against the Phoenix wiki. These additions expand placeholder recognition without changing addon functionality. See PLACEHOLDER-ADDITIONS.md for the full list.
+
+
+-----------------------------------------------------------------------------------
+
+
 Gaze is a small HUD addon that connects your selected target to public Phoenix character profiles and wiki pages. The eye reacts to your selected target with a visual change after a short delay. Supported targets include players, recognized Notorious Monsters (NMs), and placeholders (PHs). Click the eye to copy the associated link or open it in your default browser.
 
 Player targets link to their character profiles. Recognized Notorious Monsters (NMs) link to their Phoenix wiki pages. Supported placeholders (PHs) link to the page for the NM they can spawn. Gaze keeps the interaction in one movable eye, without additional windows or menus.
+
 
 PHX is project and package branding. The addon folder, Lua entry point, and in-game name are **gaze**.
 
