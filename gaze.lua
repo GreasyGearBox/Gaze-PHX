@@ -279,7 +279,7 @@ local function get_supported_target()
 
     -- Player character.
     if (bit.band(flags, 0x01) == 0x01) then
-        if (is_self_target(entity, index) or not valid_character_name(entity.Name)) then
+        if (not valid_character_name(entity.Name)) then
             return nil;
         end
 
@@ -291,7 +291,7 @@ local function get_supported_target()
         end
 
         return {
-            kind = 'player',
+            kind = is_self_target(entity, index) and 'self' or 'player',
             key  = key,
             name = entity.Name,
         };
@@ -394,7 +394,7 @@ end
 
 local function update_target_state()
     local entity, index = get_current_target();
-    if (is_self_target(entity, index)) then clear_target_state(); return; end
+    -- Self targets follow the debounce and remain clickable with a closed eye.
     local now = ashita.time.get_tick64();
     local target = get_supported_target();
 
@@ -429,6 +429,8 @@ local function update_target_state()
                 set_state('testimony_' .. gaze.stable_job);
             elseif (gaze.stable_kind == 'key' or gaze.stable_kind == 'coffer') then
                 set_state(gaze.stable_kind);
+            elseif (gaze.stable_kind == 'self') then
+                set_state(STATE_IDLE);
             elseif (was_recently_gazed(gaze.stable_name)) then
                 set_state(STATE_CLICKED);
             else
@@ -458,7 +460,7 @@ local function activate_current_link(use_badge)
         return;
     end
 
-    if (live.kind == 'player') then
+    if (live.kind == 'player' or live.kind == 'self') then
         gaze.pending_link = { url = PROFILE_BASE .. live.name, name = live.name,
             kind = live.kind, key = live.key, mode = gaze.settings.mode };
         return;
