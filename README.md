@@ -6,7 +6,7 @@
 Gaze provides a single eye interface for opening public Phoenix character profiles and Wiki pages from your selected target. It keeps the interface simple, with no additional windows or menus. When the eye reacts to your target, clicking it will open the phoenix character profile, or corresponding wiki page.
 
 ## What's new in v0.6.1
-
+![Gaze v0.6.1 — Testimony and coffer indicators](https://i.imgur.com/qEN5QOM.png)
 ### Browser mode by default
 
 Clicking the eye now opens the associated page in your default browser. Existing saved mode preferences are preserved. Clipboard mode remains available through `/gaze mode 1`.
