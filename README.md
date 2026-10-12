@@ -2,6 +2,8 @@
 
 **Author:** Mr.Bear  
 **Platform:** Ashita 4 · Phoenix XI
+[Install Gaze v0.6.1](https://github.com/GreasyGearBox/Gaze-PHX/releases/tag/v0.6.1)
+
 
 Gaze provides a single eye interface for opening public Phoenix character profiles and Wiki pages from your selected target. It keeps the interface simple, with no additional windows or menus. When the eye reacts to your target, clicking it will open the phoenix character profile, or corresponding wiki page.
 
