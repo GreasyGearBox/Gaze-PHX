@@ -2,6 +2,7 @@
 
 **Author:** Mr.Bear  
 **Platform:** Ashita 4 · Phoenix XI
+
 [Install Gaze v0.6.1](https://github.com/GreasyGearBox/Gaze-PHX/releases/tag/v0.6.1)
 
 
