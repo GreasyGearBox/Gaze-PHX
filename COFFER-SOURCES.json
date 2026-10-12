@@ -1,0 +1,1229 @@
+{
+  "schema_version": 1,
+  "source": "Phoenix Wiki",
+  "retrieved_on": "2026-10-11",
+  "status": "Planning data; zone IDs verified from resource table; suffixed in-game target aliases still require verification.",
+  "scope": "AF1 treasure coffers: direct armor and old gauntlets; Davoi included only as a key farming zone",
+  "af_source_url": "https://wiki.phoenix-xi.com/Artifact_Armor",
+  "zones": [
+    {
+      "zone": "Beadeaux",
+      "zone_id": 147,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Beadeaux)",
+      "key_name": "Beadeaux Coffer Key",
+      "key_item_id": 1043,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Beadeaux_Coffer_Key",
+      "key_data_revision": "4d8106b810b0",
+      "direct_armor_jobs": [
+        "MNK",
+        "PLD",
+        "BST"
+      ],
+      "old_gauntlets_jobs": [
+        "WHM"
+      ],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Beadeaux",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 147
+        },
+        {
+          "wiki_monster_name": "Ancient Quadav",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Ancient_Quadav",
+          "zone": "Beadeaux",
+          "rate": "5%",
+          "target_name_candidate": "Ancient Quadav",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 147
+        },
+        {
+          "wiki_monster_name": "Darksteel Quadav",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Darksteel_Quadav",
+          "zone": "Beadeaux",
+          "rate": "5%",
+          "target_name_candidate": "Darksteel Quadav",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 147
+        },
+        {
+          "wiki_monster_name": "Platinum Quadav",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Platinum_Quadav",
+          "zone": "Beadeaux",
+          "rate": "5%",
+          "target_name_candidate": "Platinum Quadav",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 147
+        },
+        {
+          "wiki_monster_name": "Sapphire Quadav",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Sapphire_Quadav",
+          "zone": "Beadeaux",
+          "rate": "1%",
+          "target_name_candidate": "Sapphire Quadav",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 147
+        }
+      ],
+      "coffer_zone_id": 147
+    },
+    {
+      "zone": "Castle Oztroja",
+      "zone_id": 151,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Castle_Oztroja)",
+      "key_name": "Oztroja Coffer Key",
+      "key_item_id": 1044,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Oztroja_Coffer_Key",
+      "key_data_revision": "4d8106b810b0",
+      "direct_armor_jobs": [
+        "RDM",
+        "THF",
+        "DRK",
+        "BRD"
+      ],
+      "old_gauntlets_jobs": [],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Castle Oztroja",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 151
+        },
+        {
+          "wiki_monster_name": "Yagudo Assassin",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Yagudo_Assassin",
+          "zone": "Castle Oztroja",
+          "rate": "5%",
+          "target_name_candidate": "Yagudo Assassin",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 151
+        },
+        {
+          "wiki_monster_name": "Yagudo Conductor",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Yagudo_Conductor",
+          "zone": "Castle Oztroja",
+          "rate": "5%",
+          "target_name_candidate": "Yagudo Conductor",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 151
+        },
+        {
+          "wiki_monster_name": "Yagudo Flagellant",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Yagudo_Flagellant",
+          "zone": "Castle Oztroja",
+          "rate": "5%",
+          "target_name_candidate": "Yagudo Flagellant",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 151
+        },
+        {
+          "wiki_monster_name": "Yagudo Prelate",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Yagudo_Prelate",
+          "zone": "Castle Oztroja",
+          "rate": "5%",
+          "target_name_candidate": "Yagudo Prelate",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 151
+        }
+      ],
+      "coffer_zone_id": 151
+    },
+    {
+      "zone": "Castle Zvahl Baileys",
+      "zone_id": 161,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Castle_Zvahl_Baileys)",
+      "key_name": "Zvahl Coffer Key",
+      "key_item_id": 1048,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Zvahl_Coffer_Key",
+      "key_data_revision": "8d2e0c0de986",
+      "direct_armor_jobs": [
+        "WAR",
+        "THF"
+      ],
+      "old_gauntlets_jobs": [
+        "BRD"
+      ],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Castle Zvahl Baileys",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 161
+        },
+        {
+          "wiki_monster_name": "Abyssal Demon",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Abyssal_Demon",
+          "zone": "Castle Zvahl Baileys",
+          "rate": "5%",
+          "target_name_candidate": "Abyssal Demon",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 161
+        },
+        {
+          "wiki_monster_name": "Ahriman",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Ahriman",
+          "zone": "Castle Zvahl Baileys",
+          "rate": "5%",
+          "target_name_candidate": "Ahriman",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 161
+        },
+        {
+          "wiki_monster_name": "Arch Demon",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Arch_Demon",
+          "zone": "Castle Zvahl Baileys",
+          "rate": "5%",
+          "target_name_candidate": "Arch Demon",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 161
+        },
+        {
+          "wiki_monster_name": "Blood Demon",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Blood_Demon",
+          "zone": "Castle Zvahl Baileys",
+          "rate": "5%",
+          "target_name_candidate": "Blood Demon",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 161
+        },
+        {
+          "wiki_monster_name": "Doom Demon",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Doom_Demon",
+          "zone": "Castle Zvahl Baileys",
+          "rate": "5%",
+          "target_name_candidate": "Doom Demon",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 161
+        }
+      ],
+      "coffer_zone_id": 161
+    },
+    {
+      "zone": "Crawlers' Nest",
+      "zone_id": 197,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Crawlers'_Nest)",
+      "key_name": "Nest Coffer Key",
+      "key_item_id": 1045,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Nest_Coffer_Key",
+      "key_data_revision": "8d2e0c0de986",
+      "direct_armor_jobs": [
+        "WAR",
+        "WHM",
+        "BRD",
+        "RNG"
+      ],
+      "old_gauntlets_jobs": [
+        "MNK",
+        "BST"
+      ],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Crawlers' Nest",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 197
+        },
+        {
+          "wiki_monster_name": "Crawler Hunter",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Crawler_Hunter",
+          "zone": "Crawlers' Nest",
+          "rate": "5%",
+          "target_name_candidate": "Crawler Hunter",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 197
+        },
+        {
+          "wiki_monster_name": "Helm Beetle",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Helm_Beetle",
+          "zone": "Crawlers' Nest",
+          "rate": "5%",
+          "target_name_candidate": "Helm Beetle",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 197
+        },
+        {
+          "wiki_monster_name": "Knight Crawler CN",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Knight_Crawler_CN",
+          "zone": "Crawlers' Nest",
+          "rate": "5%",
+          "target_name_candidate": "Knight Crawler",
+          "target_name_status": "Inferred alias; not verified in game",
+          "zone_id": 197
+        }
+      ],
+      "coffer_zone_id": 197
+    },
+    {
+      "zone": "The Eldieme Necropolis",
+      "zone_id": 195,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(The_Eldieme_Necropolis)",
+      "key_name": "Eldieme Coffer Key",
+      "key_item_id": 1046,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Eldieme_Coffer_Key",
+      "key_data_revision": "8d2e0c0de986",
+      "direct_armor_jobs": [
+        "BLM"
+      ],
+      "old_gauntlets_jobs": [
+        "WAR",
+        "RDM",
+        "PLD",
+        "DRK"
+      ],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "The Eldieme Necropolis",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 195
+        },
+        {
+          "wiki_monster_name": "Tomb Mage",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Tomb_Mage",
+          "zone": "The Eldieme Necropolis",
+          "rate": "5%",
+          "target_name_candidate": "Tomb Mage",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 195
+        },
+        {
+          "wiki_monster_name": "Tomb Warrior",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Tomb_Warrior",
+          "zone": "The Eldieme Necropolis",
+          "rate": "5%",
+          "target_name_candidate": "Tomb Warrior",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 195
+        },
+        {
+          "wiki_monster_name": "Haunt EN",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Haunt_EN",
+          "zone": "The Eldieme Necropolis",
+          "rate": "5%",
+          "target_name_candidate": "Haunt",
+          "target_name_status": "Inferred alias; not verified in game",
+          "zone_id": 195
+        },
+        {
+          "wiki_monster_name": "Spriggan",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Spriggan",
+          "zone": "The Eldieme Necropolis",
+          "rate": "5%",
+          "target_name_candidate": "Spriggan",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 195
+        }
+      ],
+      "coffer_zone_id": 195
+    },
+    {
+      "zone": "Garlaige Citadel",
+      "zone_id": 200,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Garlaige_Citadel)",
+      "key_name": "Garlaige Coffer Key",
+      "key_item_id": 1047,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Garlaige_Coffer_Key",
+      "key_data_revision": "8d2e0c0de986",
+      "direct_armor_jobs": [
+        "MNK",
+        "WHM",
+        "RDM",
+        "PLD",
+        "BST"
+      ],
+      "old_gauntlets_jobs": [
+        "BLM",
+        "RNG"
+      ],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Garlaige Citadel",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 200
+        },
+        {
+          "wiki_monster_name": "Fallen Mage",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Fallen_Mage",
+          "zone": "Garlaige Citadel",
+          "rate": "5%",
+          "target_name_candidate": "Fallen Mage",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 200
+        },
+        {
+          "wiki_monster_name": "Fallen Major",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Fallen_Major",
+          "zone": "Garlaige Citadel",
+          "rate": "5%",
+          "target_name_candidate": "Fallen Major",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 200
+        },
+        {
+          "wiki_monster_name": "Hellmine",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Hellmine",
+          "zone": "Garlaige Citadel",
+          "rate": "5%",
+          "target_name_candidate": "Hellmine",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 200
+        },
+        {
+          "wiki_monster_name": "Magic Jug",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Magic_Jug",
+          "zone": "Garlaige Citadel",
+          "rate": "5%",
+          "target_name_candidate": "Magic Jug",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 200
+        },
+        {
+          "wiki_monster_name": "Over Weapon",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Over_Weapon",
+          "zone": "Garlaige Citadel",
+          "rate": "5%",
+          "target_name_candidate": "Over Weapon",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 200
+        },
+        {
+          "wiki_monster_name": "Tainted Flesh GC",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Tainted_Flesh_GC",
+          "zone": "Garlaige Citadel",
+          "rate": "5%",
+          "target_name_candidate": "Tainted Flesh",
+          "target_name_status": "Inferred alias; not verified in game",
+          "zone_id": 200
+        },
+        {
+          "wiki_monster_name": "Vault Weapon",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Vault_Weapon",
+          "zone": "Garlaige Citadel",
+          "rate": "5%",
+          "target_name_candidate": "Vault Weapon",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 200
+        },
+        {
+          "wiki_monster_name": "Wraith",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Wraith",
+          "zone": "Garlaige Citadel",
+          "rate": "5%",
+          "target_name_candidate": "Wraith",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 200
+        }
+      ],
+      "coffer_zone_id": 200
+    },
+    {
+      "zone": "Monastic Cavern",
+      "zone_id": 150,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Monastic_Cavern)",
+      "key_name": "Davoi Coffer Key",
+      "key_item_id": 1042,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Davoi_Coffer_Key",
+      "key_data_revision": "4d8106b810b0",
+      "direct_armor_jobs": [
+        "BLM",
+        "DRK",
+        "RNG"
+      ],
+      "old_gauntlets_jobs": [
+        "THF"
+      ],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Monastic Cavern",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 150
+        },
+        {
+          "wiki_monster_name": "Orcish Champion",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Orcish_Champion",
+          "zone": "Monastic Cavern",
+          "rate": "5%",
+          "target_name_candidate": "Orcish Champion",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 150
+        },
+        {
+          "wiki_monster_name": "Orcish Dragoon",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Orcish_Dragoon",
+          "zone": "Monastic Cavern",
+          "rate": "5%",
+          "target_name_candidate": "Orcish Dragoon",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 150
+        },
+        {
+          "wiki_monster_name": "Orcish Dreadnought",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Orcish_Dreadnought",
+          "zone": "Monastic Cavern",
+          "rate": "5%",
+          "target_name_candidate": "Orcish Dreadnought",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 150
+        },
+        {
+          "wiki_monster_name": "Orcish Farkiller",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Orcish_Farkiller",
+          "zone": "Monastic Cavern",
+          "rate": "5%",
+          "target_name_candidate": "Orcish Farkiller",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 150
+        }
+      ],
+      "coffer_zone_id": 150
+    },
+    {
+      "zone": "The Boyahda Tree",
+      "zone_id": 153,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(The_Boyahda_Tree)",
+      "key_name": "Boyahda Coffer Key",
+      "key_item_id": 1052,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Boyahda_Coffer_Key",
+      "key_data_revision": "8d2e0c0de986",
+      "direct_armor_jobs": [
+        "NIN"
+      ],
+      "old_gauntlets_jobs": [
+        "DRG"
+      ],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "The Boyahda Tree",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 153
+        },
+        {
+          "wiki_monster_name": "Mourioche",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mourioche",
+          "zone": "The Boyahda Tree",
+          "rate": "5%",
+          "target_name_candidate": "Mourioche",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 153
+        },
+        {
+          "wiki_monster_name": "Death Cap",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Death_Cap",
+          "zone": "The Boyahda Tree",
+          "rate": "5%",
+          "target_name_candidate": "Death Cap",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 153
+        },
+        {
+          "wiki_monster_name": "Stygian Pugil",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Stygian_Pugil",
+          "zone": "The Boyahda Tree",
+          "rate": "5%",
+          "target_name_candidate": "Stygian Pugil",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 153
+        },
+        {
+          "wiki_monster_name": "Robber Crab",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Robber_Crab",
+          "zone": "The Boyahda Tree",
+          "rate": "5%",
+          "target_name_candidate": "Robber Crab",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 153
+        },
+        {
+          "wiki_monster_name": "Bark Spider",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Bark_Spider",
+          "zone": "The Boyahda Tree",
+          "rate": "5%",
+          "target_name_candidate": "Bark Spider",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 153
+        },
+        {
+          "wiki_monster_name": "Knight Crawler BT",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Knight_Crawler_BT",
+          "zone": "The Boyahda Tree",
+          "rate": "5%",
+          "target_name_candidate": "Knight Crawler",
+          "target_name_status": "Inferred alias; not verified in game",
+          "zone_id": 153
+        },
+        {
+          "wiki_monster_name": "Moss Eater",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Moss_Eater",
+          "zone": "The Boyahda Tree",
+          "rate": "5%",
+          "target_name_candidate": "Moss Eater",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 153
+        },
+        {
+          "wiki_monster_name": "Bouncing Ball",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Bouncing_Ball",
+          "zone": "The Boyahda Tree",
+          "rate": "1%",
+          "target_name_candidate": "Bouncing Ball",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 153
+        },
+        {
+          "wiki_monster_name": "Old Goobbue",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Old_Goobbue",
+          "zone": "The Boyahda Tree",
+          "rate": "1%",
+          "target_name_candidate": "Old Goobbue",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 153
+        }
+      ],
+      "coffer_zone_id": 153
+    },
+    {
+      "zone": "Ifrit's Cauldron",
+      "zone_id": 205,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Ifrit's_Cauldron)",
+      "key_name": "Cauldron Coffer Key",
+      "key_item_id": 1053,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Cauldron_Coffer_Key",
+      "key_data_revision": "8d2e0c0de986",
+      "direct_armor_jobs": [
+        "DRG"
+      ],
+      "old_gauntlets_jobs": [
+        "NIN"
+      ],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Ifrit's Cauldron",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 205
+        },
+        {
+          "wiki_monster_name": "Dire Bat",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Dire_Bat",
+          "zone": "Ifrit's Cauldron",
+          "rate": "5%",
+          "target_name_candidate": "Dire Bat",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 205
+        },
+        {
+          "wiki_monster_name": "Dodomeki",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Dodomeki",
+          "zone": "Ifrit's Cauldron",
+          "rate": "5%",
+          "target_name_candidate": "Dodomeki",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 205
+        },
+        {
+          "wiki_monster_name": "Old Opo-Opo",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Old_Opo-Opo",
+          "zone": "Ifrit's Cauldron",
+          "rate": "5%",
+          "target_name_candidate": "Old Opo-Opo",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 205
+        },
+        {
+          "wiki_monster_name": "Volcanic Gas",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Volcanic_Gas",
+          "zone": "Ifrit's Cauldron",
+          "rate": "5%",
+          "target_name_candidate": "Volcanic Gas",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 205
+        },
+        {
+          "wiki_monster_name": "Volcano Wasp",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Volcano_Wasp",
+          "zone": "Ifrit's Cauldron",
+          "rate": "5%",
+          "target_name_candidate": "Volcano Wasp",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 205
+        }
+      ],
+      "coffer_zone_id": 205
+    },
+    {
+      "zone": "Kuftal Tunnel",
+      "zone_id": 174,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Kuftal_Tunnel)",
+      "key_name": "Kuftal Coffer Key",
+      "key_item_id": 1051,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Kuftal_Coffer_Key",
+      "key_data_revision": "8d2e0c0de986",
+      "direct_armor_jobs": [],
+      "old_gauntlets_jobs": [
+        "SAM"
+      ],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Kuftal Tunnel",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 174
+        },
+        {
+          "wiki_monster_name": "Sand Lizard",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Sand_Lizard",
+          "zone": "Kuftal Tunnel",
+          "rate": "5%",
+          "target_name_candidate": "Sand Lizard",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 174
+        },
+        {
+          "wiki_monster_name": "Haunt",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Haunt",
+          "zone": "Kuftal Tunnel",
+          "rate": "5%",
+          "target_name_candidate": "Haunt",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 174
+        },
+        {
+          "wiki_monster_name": "Stygian Pugil",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Stygian_Pugil",
+          "zone": "Kuftal Tunnel",
+          "rate": "5%",
+          "target_name_candidate": "Stygian Pugil",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 174
+        },
+        {
+          "wiki_monster_name": "Robber Crab",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Robber_Crab",
+          "zone": "Kuftal Tunnel",
+          "rate": "5%",
+          "target_name_candidate": "Robber Crab",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 174
+        },
+        {
+          "wiki_monster_name": "Scavenger Crab",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Scavenger_Crab",
+          "zone": "Kuftal Tunnel",
+          "rate": "5%",
+          "target_name_candidate": "Scavenger Crab",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 174
+        },
+        {
+          "wiki_monster_name": "Cave Worm KT",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Cave_Worm_KT",
+          "zone": "Kuftal Tunnel",
+          "rate": "5%",
+          "target_name_candidate": "Cave Worm",
+          "target_name_status": "Inferred alias; not verified in game",
+          "zone_id": 174
+        },
+        {
+          "wiki_monster_name": "Recluse Spider",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Recluse_Spider",
+          "zone": "Kuftal Tunnel",
+          "rate": "5%",
+          "target_name_candidate": "Recluse Spider",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 174
+        },
+        {
+          "wiki_monster_name": "Sabotender Sediendo",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Sabotender_Sediendo",
+          "zone": "Kuftal Tunnel",
+          "rate": "5%",
+          "target_name_candidate": "Sabotender Sediendo",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 174
+        },
+        {
+          "wiki_monster_name": "Deinonychus",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Deinonychus",
+          "zone": "Kuftal Tunnel",
+          "rate": "1%",
+          "target_name_candidate": "Deinonychus",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 174
+        }
+      ],
+      "coffer_zone_id": 174
+    },
+    {
+      "zone": "Quicksand Caves",
+      "zone_id": 208,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Quicksand_Caves)",
+      "key_name": "Quicksand Coffer Key",
+      "key_item_id": 1054,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Quicksand_Coffer_Key",
+      "key_data_revision": "4d8106b810b0",
+      "direct_armor_jobs": [
+        "SAM",
+        "DRG"
+      ],
+      "old_gauntlets_jobs": [],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Quicksand Caves",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 208
+        },
+        {
+          "wiki_monster_name": "Sand Lizard",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Sand_Lizard",
+          "zone": "Quicksand Caves",
+          "rate": "5%",
+          "target_name_candidate": "Sand Lizard",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 208
+        },
+        {
+          "wiki_monster_name": "Helm Beetle",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Helm_Beetle",
+          "zone": "Quicksand Caves",
+          "rate": "5%",
+          "target_name_candidate": "Helm Beetle",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 208
+        },
+        {
+          "wiki_monster_name": "Antican Hastatus",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Antican_Hastatus",
+          "zone": "Quicksand Caves",
+          "rate": "5%",
+          "target_name_candidate": "Antican Hastatus",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 208
+        },
+        {
+          "wiki_monster_name": "Antican Princeps",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Antican_Princeps",
+          "zone": "Quicksand Caves",
+          "rate": "5%",
+          "target_name_candidate": "Antican Princeps",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 208
+        },
+        {
+          "wiki_monster_name": "Antican Signifer",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Antican_Signifer",
+          "zone": "Quicksand Caves",
+          "rate": "5%",
+          "target_name_candidate": "Antican Signifer",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 208
+        },
+        {
+          "wiki_monster_name": "Sabotender Bailaor",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Sabotender_Bailaor",
+          "zone": "Quicksand Caves",
+          "rate": "5%",
+          "target_name_candidate": "Sabotender Bailaor",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 208
+        },
+        {
+          "wiki_monster_name": "Sand Eater",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Sand_Eater",
+          "zone": "Quicksand Caves",
+          "rate": "1%",
+          "target_name_candidate": "Sand Eater",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 208
+        },
+        {
+          "wiki_monster_name": "Sand Spider",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Sand_Spider",
+          "zone": "Quicksand Caves",
+          "rate": "1%",
+          "target_name_candidate": "Sand Spider",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 208
+        }
+      ],
+      "coffer_zone_id": 208
+    },
+    {
+      "zone": "Sea Serpent Grotto",
+      "zone_id": 176,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Sea_Serpent_Grotto)",
+      "key_name": "Grotto Coffer Key",
+      "key_item_id": 1059,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Grotto_Coffer_Key",
+      "key_data_revision": "4d8106b810b0",
+      "direct_armor_jobs": [
+        "NIN"
+      ],
+      "old_gauntlets_jobs": [
+        "SMN"
+      ],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Sea Serpent Grotto",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 176
+        },
+        {
+          "wiki_monster_name": "Blubber Eyes PX",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Blubber_Eyes_PX",
+          "zone": "Sea Serpent Grotto",
+          "rate": "5%",
+          "target_name_candidate": "Blubber Eyes",
+          "target_name_status": "Inferred alias; not verified in game",
+          "zone_id": 176
+        },
+        {
+          "wiki_monster_name": "Razorjaw Pugil",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Razorjaw_Pugil",
+          "zone": "Sea Serpent Grotto",
+          "rate": "5%",
+          "target_name_candidate": "Razorjaw Pugil",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 176
+        },
+        {
+          "wiki_monster_name": "Rock Crab",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Rock_Crab",
+          "zone": "Sea Serpent Grotto",
+          "rate": "5%",
+          "target_name_candidate": "Rock Crab",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 176
+        },
+        {
+          "wiki_monster_name": "Bog Sahagin",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Bog_Sahagin",
+          "zone": "Sea Serpent Grotto",
+          "rate": "5%",
+          "target_name_candidate": "Bog Sahagin",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 176
+        },
+        {
+          "wiki_monster_name": "Marsh Sahagin",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Marsh_Sahagin",
+          "zone": "Sea Serpent Grotto",
+          "rate": "5%",
+          "target_name_candidate": "Marsh Sahagin",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 176
+        },
+        {
+          "wiki_monster_name": "Swamp Sahagin",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Swamp_Sahagin",
+          "zone": "Sea Serpent Grotto",
+          "rate": "5%",
+          "target_name_candidate": "Swamp Sahagin",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 176
+        }
+      ],
+      "coffer_zone_id": 176
+    },
+    {
+      "zone": "Temple of Uggalepih",
+      "zone_id": 159,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Temple_of_Uggalepih)",
+      "key_name": "Uggalepih Coffer Key",
+      "key_item_id": 1049,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Uggalepih_Coffer_Key",
+      "key_data_revision": "4d8106b810b0",
+      "direct_armor_jobs": [
+        "SAM",
+        "SMN"
+      ],
+      "old_gauntlets_jobs": [],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Temple of Uggalepih",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 159
+        },
+        {
+          "wiki_monster_name": "Hover Tank",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Hover_Tank",
+          "zone": "Temple of Uggalepih",
+          "rate": "5%",
+          "target_name_candidate": "Hover Tank",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 159
+        },
+        {
+          "wiki_monster_name": "Temple Bee",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Temple_Bee",
+          "zone": "Temple of Uggalepih",
+          "rate": "5%",
+          "target_name_candidate": "Temple Bee",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 159
+        },
+        {
+          "wiki_monster_name": "Temple Guardian",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Temple_Guardian",
+          "zone": "Temple of Uggalepih",
+          "rate": "5%",
+          "target_name_candidate": "Temple Guardian",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 159
+        },
+        {
+          "wiki_monster_name": "Tonberry Dismayer",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Tonberry_Dismayer",
+          "zone": "Temple of Uggalepih",
+          "rate": "5%",
+          "target_name_candidate": "Tonberry Dismayer",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 159
+        },
+        {
+          "wiki_monster_name": "Tonberry Maledictor",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Tonberry_Maledictor",
+          "zone": "Temple of Uggalepih",
+          "rate": "5%",
+          "target_name_candidate": "Tonberry Maledictor",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 159
+        },
+        {
+          "wiki_monster_name": "Tonberry Pursuer",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Tonberry_Pursuer",
+          "zone": "Temple of Uggalepih",
+          "rate": "5%",
+          "target_name_candidate": "Tonberry Pursuer",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 159
+        },
+        {
+          "wiki_monster_name": "Tonberry Stabber",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Tonberry_Stabber",
+          "zone": "Temple of Uggalepih",
+          "rate": "5%",
+          "target_name_candidate": "Tonberry Stabber",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 159
+        },
+        {
+          "wiki_monster_name": "Iron Maiden",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Iron_Maiden",
+          "zone": "Temple of Uggalepih",
+          "rate": "1%",
+          "target_name_candidate": "Iron Maiden",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 159
+        }
+      ],
+      "coffer_zone_id": 159
+    },
+    {
+      "zone": "Toraimarai Canal",
+      "zone_id": 169,
+      "coffer_target": "Treasure Coffer",
+      "coffer_wiki_url": "https://wiki.phoenix-xi.com/Treasure_Coffer_(Toraimarai_Canal)",
+      "key_name": "Toraimarai Coffer Key",
+      "key_item_id": 1057,
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Toraimarai_Coffer_Key",
+      "key_data_revision": "8d2e0c0de986",
+      "direct_armor_jobs": [
+        "SMN"
+      ],
+      "old_gauntlets_jobs": [],
+      "drops": [
+        {
+          "wiki_monster_name": "Mimic",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mimic",
+          "zone": "Toraimarai Canal",
+          "rate": "Always",
+          "target_name_candidate": "Mimic",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Stygian Pugil",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Stygian_Pugil",
+          "zone": "Toraimarai Canal",
+          "rate": "5%",
+          "target_name_candidate": "Stygian Pugil",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Scavenger Crab",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Scavenger_Crab",
+          "zone": "Toraimarai Canal",
+          "rate": "5%",
+          "target_name_candidate": "Scavenger Crab",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Dire Bat UDT TC SSG",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Dire_Bat_UDT_TC_SSG",
+          "zone": "Toraimarai Canal",
+          "rate": "5%",
+          "target_name_candidate": "Dire Bat",
+          "target_name_status": "Inferred alias; not verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Mousse",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mousse",
+          "zone": "Toraimarai Canal",
+          "rate": "5%",
+          "target_name_candidate": "Mousse",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Fleshcraver",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Fleshcraver",
+          "zone": "Toraimarai Canal",
+          "rate": "5%",
+          "target_name_candidate": "Fleshcraver",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Girtab",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Girtab",
+          "zone": "Toraimarai Canal",
+          "rate": "5%",
+          "target_name_candidate": "Girtab",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Impish Bats",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Impish_Bats",
+          "zone": "Toraimarai Canal",
+          "rate": "5%",
+          "target_name_candidate": "Impish Bats",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Mindcraver",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Mindcraver",
+          "zone": "Toraimarai Canal",
+          "rate": "5%",
+          "target_name_candidate": "Mindcraver",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Rotten Sod",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Rotten_Sod",
+          "zone": "Toraimarai Canal",
+          "rate": "5%",
+          "target_name_candidate": "Rotten Sod",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Bouncing Ball",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Bouncing_Ball",
+          "zone": "Toraimarai Canal",
+          "rate": "1%",
+          "target_name_candidate": "Bouncing Ball",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Doom Mage TC",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Doom_Mage_TC",
+          "zone": "Toraimarai Canal",
+          "rate": "1%",
+          "target_name_candidate": "Doom Mage",
+          "target_name_status": "Inferred alias; not verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Doom Soldier TC",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Doom_Soldier_TC",
+          "zone": "Toraimarai Canal",
+          "rate": "1%",
+          "target_name_candidate": "Doom Soldier",
+          "target_name_status": "Inferred alias; not verified in game",
+          "zone_id": 169
+        },
+        {
+          "wiki_monster_name": "Starmite",
+          "monster_wiki_url": "https://wiki.phoenix-xi.com/Starmite",
+          "zone": "Toraimarai Canal",
+          "rate": "1%",
+          "target_name_candidate": "Starmite",
+          "target_name_status": "Wiki label; not independently verified in game",
+          "zone_id": 169
+        }
+      ],
+      "coffer_zone_id": 169
+    }
+  ],
+  "additional_key_farming_zones": [
+    {
+      "zone": "Davoi",
+      "zone_id": 149,
+      "key_name": "Davoi Coffer Key",
+      "key_wiki_url": "https://wiki.phoenix-xi.com/Davoi_Coffer_Key",
+      "coffer_zone": "Monastic Cavern",
+      "monsters": [
+        "Orcish Champion",
+        "Orcish Dragoon",
+        "Orcish Dreadnought",
+        "Orcish Farkiller"
+      ],
+      "rate": "5%",
+      "coffer_zone_id": 150
+    }
+  ],
+  "zone_id_source_url": "https://github.com/Windower/Resources/blob/master/resources_data/zones.lua",
+  "zone_id_verification": "Verified against published client resource table; no in-game session test performed."
+}

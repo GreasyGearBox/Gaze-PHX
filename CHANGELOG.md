@@ -1,44 +1,35 @@
-# Gaze - PHX v0.4.1 Changelog
+# Gaze changelog
 
-- Increased target debounce from 200 ms to 500 ms. A changed supported target must remain unchanged for half a second before its eye state updates, reducing rapid eye changes while tabbing through targets. The previous eye appearance can remain visible during this delay.
-- Added `/gaze clear` to clear recent-player history and immediately refresh the player eye.
-- Clearing history preserves the recent-player limit, position, size, and link mode.
+## v0.6.1
 
-# 0.4.0 — Experimental 2
+Changes since the approved v0.4.1 release.
 
-- Add shared garnet/antique-gold fourth eye for NMs and confirmed PHs.
-- Add 305 Phoenix-wiki PH IDs with strict ID + name matching.
-- PH clicks use associated NM wiki page in clipboard/browser modes.
-- Preserved player eye states and recent-player memory.
-- No additional windows or menus.
+### Profiles and link behavior
 
-# Changelog
+Browser mode is now the default for new settings. Existing saved mode preferences are preserved.
 
-## 0.3.0 Experimental
+Added `/gaze @PlayerName`, `/gaze @<t>` and `/gaze @` to open player profiles directly. Your own player is ignored by target recognition, profile commands and recent history updates.
 
-- Added persistent link modes: clipboard (default) and browser.
-- Added /gaze mode 1, /gaze mode 2, and current-mode query.
-- Browser launch happens only after a deliberate eye click.
-- Browser failures report an error without marking a player as recently gazed.
+### Testimonies and AF coffers
 
-## 0.2.0 Experimental
+Added testimony recognition with 18 job icons and links to official Phoenix Wiki testimony pages.
 
-- Added local NM-name recognition sourced only from the Phoenix Wiki Notorious Monsters list.
-- Recognized NMs use the full-color closed-eye state.
-- Clicking a recognized NM copies its Phoenix Wiki URL to the clipboard.
-- Player behavior and recent-player memory are unchanged.
-- Elementals and selected generic NM categories are excluded.
+Added zone detection for AF key mobs and Treasure Coffers, covering 14 coffer zones and 15 key mob zones. Mobs with both testimony and key drops show a separate clickable key badge.
 
-## 0.1.0
+Added independent testimony and coffer switches, both enabled by default.
 
-Initial proof-of-concept baseline.
+### Placeholders
 
-- Three-state eye HUD.
-- 200 ms target debounce.
-- Player-target detection.
-- Deliberate click-to-copy Phoenix character profile URL.
-- Three fixed size presets.
-- Movable HUD position.
-- Bundled local artwork.
-- Persistent recent-gazed list with configurable capacity from 1 to 18.
-- No browser launch, web requests, packet handling, gameplay-command injection, or gameplay automation.
+Added commands to add, remove and list manual placeholders. Entries are stored in a labeled section of `placeholders.lua`, with backups and immediate updates.
+
+Added support for full server IDs and three digit hexadecimal IDs verified against the targeted monster. Removing a manual override restores the curated entry.
+
+PH identification takes priority over all other categories, including zones where ordinary NM recognition is excluded. NM recognition takes priority over testimony and key indicators.
+
+### Click handling
+
+Added checks against stale targets and zone changes before opening links.
+
+## Established functionality through v0.4.1
+
+Player profiles, NM and placeholder Wiki links, player eye states, saved clipboard and browser modes, configurable recent history, `/gaze clear`, movable and resizable artwork, and a 500 ms target delay form the approved release baseline.

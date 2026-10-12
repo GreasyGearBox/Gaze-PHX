@@ -1,6 +1,6 @@
 -- Phoenix wiki PH -> NM lookup, updated 2026-10-08.
 -- Partial: 387 IDs / 285 NMs. Full entity ServerId keys.
-return {
+local placeholders = {
     -- Added 2026-10-08: Orctrap placeholder.
     [16785675] = { nm_slug = "Orctrap", zone = "Carpenters' Landing", placeholder_name = "Birdtrap" },
     [16793645] = { nm_slug = "Serra", zone = "Bibiki Bay", placeholder_name = "Jagil" },
@@ -467,3 +467,12 @@ return {
     [17678346] = { nm_slug = "Sea_Horror", zone = "Ship bound for Selbina", placeholder_name = "Sea Monk" },
     [17682442] = { nm_slug = "Sea_Horror", zone = "Ship bound for Mhaura", placeholder_name = "Sea Monk" },
 }
+
+-- Player additions and corrections are isolated here for troubleshooting.
+-- Use /gaze ph commands; full ServerId keys prevent cross-zone short-ID collisions.
+local manual_entries = {
+    -- BEGIN MANUAL PH ENTRIES
+    -- END MANUAL PH ENTRIES
+};
+for id,row in pairs(manual_entries) do placeholders[id]=row; end
+return placeholders;
