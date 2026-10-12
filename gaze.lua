@@ -1,7 +1,7 @@
 addon.name = 'gaze';
 addon.author = 'Mr.Bear';
-addon.version = '0.6.1';
-addon.desc = 'Player profiles, NM/PH links, and testimony and AF coffer wiki shortcuts for Phoenix XI.';
+addon.version = '0.4.1';
+addon.desc = 'A lightweight player-profile and NM-wiki helper for Phoenix XI.';
 require 'common';
 
 local bit      = require 'bit';
@@ -11,13 +11,7 @@ local prims    = require 'primitives';
 local settings = require 'settings';
 local nm_names = require 'nms';
 local ph_lookup = require 'placeholders';
-local manual_ph = require 'manual_ph';
 local mob_links = require 'mob_links';
-local testimony_data = require 'testimonies';
-local testimony_links = require 'testimony_links';
-local testimony_index = testimony_links.build(testimony_data);
-local coffer_links = require 'coffer_links';
-local coffer_index = coffer_links.build(require 'coffers');
 
 local PROFILE_BASE = 'https://phoenix-xi.com/characters/';
 local WIKI_BASE    = 'https://wiki.phoenix-xi.com/';
@@ -40,13 +34,11 @@ local STATE_CLICKED = 'clicked';
 local STATE_NM      = 'nm';
 
 local default_settings = T{
-    mode         = 2,
+    mode         = 1,
     visible      = true,
     x            = 40,
     y            = 40,
     size_index   = 2,
-    testimonies  = true,
-    coffers      = true,
     recent_limit = 5,
     recent_gazed = T{},
 };
@@ -54,10 +46,6 @@ local default_settings = T{
 local gaze = T{
     settings       = settings.load(default_settings),
     eye            = nil,
-    badge          = nil,
-    stable_secondary_url = nil,
-    candidate_secondary_url = nil,
-    mouse_badge    = false,
 
     state          = STATE_IDLE,
     texture_state  = nil,
@@ -65,13 +53,11 @@ local gaze = T{
     candidate_key  = nil,
     candidate_name = nil,
     candidate_kind = nil,
-    candidate_job  = nil,
     candidate_since = 0,
 
     stable_key     = 'idle',
     stable_name    = nil,
     stable_kind    = 'idle',
-    stable_job     = nil,
 
     pending_link   = nil,
 
@@ -107,28 +93,8 @@ end
 
 local function ensure_mode_settings()
     if (gaze.settings.mode ~= 1 and gaze.settings.mode ~= 2) then
-        gaze.settings.mode = 2;
+        gaze.settings.mode = 1;
     end
-end
-
-local function ensure_feature_settings()
-    if (type(gaze.settings.testimonies) ~= 'boolean') then gaze.settings.testimonies = true; end
-    if (type(gaze.settings.coffers) ~= 'boolean') then gaze.settings.coffers = true; end
-end
-
--- Party slot 0 is the local player; compare identity before any player profile action.
-local function is_self_target(entity, index)
-    if (entity == nil or bit.band(entity.SpawnFlags or 0, 0x01) == 0) then return false; end
-    if (type(entity.Name) ~= 'string') then return true; end
-    local party = AshitaCore:GetMemoryManager():GetParty();
-    if (party == nil) then return true; end -- No local identity: do not open a player link.
-    local self_sid = tonumber(party:GetMemberServerId(0)) or 0;
-    local self_index = tonumber(party:GetMemberTargetIndex(0)) or 0;
-    local self_name = party:GetMemberName(0);
-    return (self_sid ~= 0 and self_sid == tonumber(entity.ServerId))
-        or (self_index ~= 0 and self_index == index)
-        or (self_name ~= nil and self_name ~= ''
-            and self_name:lower() == entity.Name:lower());
 end
 
 local function get_display_size()
@@ -232,15 +198,7 @@ local textures = {
     [STATE_PLAYER]  = asset_path('eye_player.png'),
     [STATE_CLICKED] = asset_path('eye_clicked.png'),
     [STATE_NM]      = asset_path('eye_nm.png'),
-    key = asset_path('coffer_key.png'),
-    coffer = asset_path('coffer.png'),
 };
-
--- Each testimony job keeps a distinct icon before and after clicking.
-for _, testimony in ipairs(testimony_data.testimonies) do
-    textures['testimony_' .. testimony.job] = asset_path(
-        ('testimony_%s.png'):fmt(testimony.job:lower()));
-end
 
 local function valid_character_name(name)
     return name ~= nil and name:match('^[A-Za-z]+$') ~= nil;
@@ -291,55 +249,28 @@ local function get_supported_target()
         end
 
         return {
-            kind = is_self_target(entity, index) and 'self' or 'player',
+            kind = 'player',
             key  = key,
             name = entity.Name,
         };
     end
 
-    -- NM/PH identification takes priority over testimony drops.
-    -- PH matching still requires full ServerId and exact published name.
+    -- Match PHs by full ServerId AND exact name (case-insensitive).
+    -- Published internal suffixes are never stripped or guessed.
     if (bit.band(flags, 0x10) == 0x10) then
         local zone = get_current_zone();
-        if (zone == 0) then return nil; end
-        do
-            local slug, kind = mob_links.resolve(entity.Name, sid, nm_names, ph_lookup);
-            if (slug ~= nil and (kind == 'ph' or not EXCLUDED_NM_ZONES[zone])) then
-                return {
-                    kind = kind,
-                    key = ('%s:%u:%u:%s:%s'):fmt(kind, zone, sid ~= 0 and sid or index,
-                        entity.Name, slug),
-                    name = entity.Name,
-                    slug = slug,
-                };
-            end
+        if (zone == 0 or EXCLUDED_NM_ZONES[zone]) then
+            return nil;
         end
-
-        local key_drop = coffer_links.key(coffer_index, zone, entity.Name);
-        local testimony = gaze.settings.testimonies and (
-            testimony_links.resolve(testimony_index, entity.Name) or
-            (key_drop and testimony_links.resolve(testimony_index, key_drop.source_name))); 
-        if (testimony) then
+        local slug, kind = mob_links.resolve(entity.Name, sid, nm_names, ph_lookup);
+        if (slug ~= nil) then
             return {
-                kind = 'testimony',
-                key = ('testimony:%u:%u:%s:%s'):fmt(zone, sid ~= 0 and sid or index,
-                    entity.Name, testimony.job) .. (gaze.settings.coffers and key_drop and ':key' or ''),
+                kind = kind,
+                key = ('%s:%u:%u:%s:%s'):fmt(kind, zone, sid ~= 0 and sid or index,
+                    entity.Name, slug),
                 name = entity.Name,
-                job = testimony.job,
-                url = testimony.wiki_url,
-                secondary_url = gaze.settings.coffers and key_drop and key_drop.key_url or nil,
+                slug = slug,
             };
-        end
-        if (gaze.settings.coffers and key_drop ~= nil) then
-            return { kind = 'key', key = ('key:%u:%u:%s'):fmt(zone,
-                sid ~= 0 and sid or index, entity.Name), name = entity.Name, url = key_drop.key_url };
-        end
-    elseif (gaze.settings.coffers and bit.band(flags, 0x02) == 0x02) then
-        local zone = get_current_zone();
-        local coffer = coffer_links.coffer(coffer_index, zone, entity.Name);
-        if (coffer ~= nil) then
-            return { kind = 'coffer', key = ('coffer:%u:%u'):fmt(zone,
-                sid ~= 0 and sid or index), name = entity.Name, url = coffer.coffer_url };
         end
     end
 
@@ -374,41 +305,20 @@ local function apply_settings()
     gaze.eye.scale_x    = scale;
     gaze.eye.scale_y    = scale;
     gaze.eye.visible    = gaze.settings.visible;
-    if (gaze.badge ~= nil) then
-        gaze.badge.position_x = gaze.settings.x + display_size * 0.02;
-        gaze.badge.position_y = gaze.settings.y + display_size * 0.60;
-        gaze.badge.scale_x = scale * 0.38;
-        gaze.badge.scale_y = scale * 0.38;
-        gaze.badge.visible = gaze.settings.visible and gaze.stable_secondary_url ~= nil;
-    end
-end
-
-local function clear_target_state()
-    gaze.candidate_key = nil;
-    gaze.stable_key = 'idle'; gaze.stable_kind = 'idle';
-    gaze.stable_name = nil; gaze.stable_job = nil;
-    gaze.stable_secondary_url = nil; gaze.candidate_secondary_url = nil;
-    gaze.pending_link = nil; gaze.mouse_down = false;
-    set_state(STATE_IDLE); apply_settings();
 end
 
 local function update_target_state()
-    local entity, index = get_current_target();
-    -- Self targets follow the debounce and remain clickable with a closed eye.
     local now = ashita.time.get_tick64();
     local target = get_supported_target();
 
     local next_key  = target ~= nil and target.key or 'idle';
     local next_name = target ~= nil and target.name or nil;
     local next_kind = target ~= nil and target.kind or 'idle';
-    local next_job  = target ~= nil and target.job or nil;
 
     if (next_key ~= gaze.candidate_key) then
         gaze.candidate_key   = next_key;
         gaze.candidate_name  = next_name;
         gaze.candidate_kind  = next_kind;
-        gaze.candidate_job   = next_job;
-        gaze.candidate_secondary_url = target and target.secondary_url or nil;
         gaze.candidate_since = now;
     end
 
@@ -417,20 +327,11 @@ local function update_target_state()
             gaze.stable_key  = gaze.candidate_key;
             gaze.stable_name = gaze.candidate_name;
             gaze.stable_kind = gaze.candidate_kind;
-            gaze.stable_job  = gaze.candidate_job;
-            gaze.stable_secondary_url = gaze.candidate_secondary_url;
-            apply_settings();
 
             if (gaze.stable_key == 'idle') then
                 set_state(STATE_IDLE);
             elseif (gaze.stable_kind == 'nm' or gaze.stable_kind == 'ph') then
                 set_state(STATE_NM);
-            elseif (gaze.stable_kind == 'testimony') then
-                set_state('testimony_' .. gaze.stable_job);
-            elseif (gaze.stable_kind == 'key' or gaze.stable_kind == 'coffer') then
-                set_state(gaze.stable_kind);
-            elseif (gaze.stable_kind == 'self') then
-                set_state(STATE_IDLE);
             elseif (was_recently_gazed(gaze.stable_name)) then
                 set_state(STATE_CLICKED);
             else
@@ -440,7 +341,7 @@ local function update_target_state()
     end
 end
 
-local function activate_current_link(use_badge)
+local function activate_current_link()
     if (gaze.stable_key == 'idle') then
         return;
     end
@@ -452,23 +353,9 @@ local function activate_current_link(use_badge)
         return;
     end
 
-    if (use_badge) then
-        if (live.secondary_url ~= nil) then
-            gaze.pending_link = { url = live.secondary_url, kind = 'key',
-                key = live.key, target_kind = live.kind, mode = gaze.settings.mode };
-        end
-        return;
-    end
-
-    if (live.kind == 'player' or live.kind == 'self') then
+    if (live.kind == 'player') then
         gaze.pending_link = { url = PROFILE_BASE .. live.name, name = live.name,
             kind = live.kind, key = live.key, mode = gaze.settings.mode };
-        return;
-    end
-
-    if (live.kind == 'testimony' or live.kind == 'key' or live.kind == 'coffer') then
-        gaze.pending_link = { url = live.url, kind = live.kind,
-            key = live.key, mode = gaze.settings.mode };
         return;
     end
 
@@ -496,10 +383,6 @@ gaze.eye = prims.new({
     color         = 0xFFFFFFFF,
 });
 
-gaze.badge = prims.new({visible = false, position_x = 0, position_y = 0,
-    can_focus = false, locked = true, lockedz = false, width = TEXTURE_SIZE,
-    height = TEXTURE_SIZE, color = 0xFFFFFFFF, texture = asset_path('key_badge.png')});
-ensure_feature_settings();
 ensure_mode_settings();
 ensure_recent_settings();
 trim_recent_list();
@@ -511,8 +394,6 @@ settings.register('settings', 'settings_update', function (s)
         gaze.settings = s;
     end
 
-    ensure_feature_settings();
-    clear_target_state();
     ensure_mode_settings();
     ensure_recent_settings();
     trim_recent_list();
@@ -531,9 +412,6 @@ ashita.events.register('d3d_present', 'present_cb', function ()
     if (gaze.pending_link ~= nil) then
         local pending = gaze.pending_link;
         gaze.pending_link = nil;
-        local live = get_supported_target();
-        if (live == nil or live.key ~= pending.key or
-            live.kind ~= (pending.target_kind or pending.kind)) then return; end
         local success = true;
         if (pending.mode == 2) then
             success = open_browser(pending.url);
@@ -591,12 +469,6 @@ ashita.events.register('mouse', 'mouse_cb', function (e)
             gaze.drag_x = e.x - gaze.settings.x;
             gaze.drag_y = e.y - gaze.settings.y;
         else
-            local size = get_display_size();
-            gaze.mouse_badge = gaze.stable_secondary_url ~= nil
-                and e.x >= gaze.settings.x + size * 0.02
-                and e.x <= gaze.settings.x + size * 0.40
-                and e.y >= gaze.settings.y + size * 0.60
-                and e.y <= gaze.settings.y + size * 0.98;
             gaze.mouse_down = true;
         end
 
@@ -617,13 +489,7 @@ ashita.events.register('mouse', 'mouse_cb', function (e)
             e.blocked = true;
 
             if (hit) then
-                local size = get_display_size();
-                local badge_hit = gaze.stable_secondary_url ~= nil
-                    and e.x >= gaze.settings.x + size * 0.02
-                    and e.x <= gaze.settings.x + size * 0.40
-                    and e.y >= gaze.settings.y + size * 0.60
-                    and e.y <= gaze.settings.y + size * 0.98;
-                if (badge_hit == gaze.mouse_badge) then activate_current_link(badge_hit); end
+                activate_current_link();
             end
         end
     end
@@ -651,82 +517,6 @@ ashita.events.register('command', 'command_cb', function (e)
     end
 
     local sub = args[2]:lower();
-
-    -- Explicit @ commands always open a browser, regardless of eye click mode.
-    if (args[2]:sub(1,1) == '@') then
-        local name=args[2]:sub(2);
-        local function report(text) print(chat.header('Gaze'):append(chat.message(text))); end
-        if #args ~= 2 then report('Use /gaze @PlayerName, /gaze @<t>, or /gaze @.');return;end
-        if name == '' or name:lower() == '<t>' then
-            local entity,index=get_current_target();
-            if not entity or bit.band(tonumber(entity.SpawnFlags) or 0,0x01) ~= 0x01 then
-                report('Target a player to open their profile.');return;
-            end
-            if is_self_target(entity,index) then report('Gaze ignores your own player.');return;end
-            name=entity.Name;
-        end
-        if not valid_character_name(name) then report('Enter a valid player name.');return;end
-        local party=AshitaCore:GetMemoryManager():GetParty();
-        local own=party and party:GetMemberName(0);
-        if own and own:lower() == name:lower() then report('Gaze ignores your own player.');return;end
-        if open_browser(PROFILE_BASE..name) then add_recent_gazed(name);update_target_state();end
-        return;
-    end
-
-    if (sub == 'ph') then
-        local tokens,parse_err=manual_ph.args(e.command);
-        local function report(text) print(chat.header('Gaze'):append(chat.message(text))); end
-        if not tokens then report(parse_err);return;end
-        local action=tokens[3] and tokens[3]:lower();
-        local path=addon.path..'/placeholders.lua';
-        local entries,load_err=manual_ph.load(path);
-        if not entries then report('Manual PH read failed: '..tostring(load_err));return;end
-        if action == 'list' and #tokens == 3 then
-            local ids={};for id in pairs(entries) do ids[#ids+1]=id;end;table.sort(ids);
-            if #ids == 0 then report('No manual placeholders saved.');end
-            for _,id in ipairs(ids) do local row=entries[id];report(('%u: %s -> %s'):format(id,row.placeholder_name,row.nm_slug));end
-            return;
-        end
-        local entity=get_current_target();
-        if entity and bit.band(tonumber(entity.SpawnFlags) or 0,0x10) ~= 0x10 then entity=nil;end
-        local id,err;
-        if action == 'add' and #tokens == 6 then
-            id,err=manual_ph.resolve_id(tokens[6],entity,tokens[5]);
-            if not id then report(err);return;end
-            local row;row,err=manual_ph.row(tokens[4],tokens[5],id);
-            if not row then report(err);return;end
-            entries[id]=row;
-        elseif action == 'remove' and #tokens == 4 then
-            id,err=manual_ph.resolve_id(tokens[4],entity,entity and entity.Name);
-            if not id then report(err);return;end
-            if not entries[id] then report('That ID is not a manual entry.');return;end
-            entries[id]=nil;
-        else
-            report('Use /gaze ph add "NM Name" "PH Name" ID, /gaze ph remove ID, or /gaze ph list.');return;
-        end
-        local saved,backup,lookup=manual_ph.save(path,entries);
-        if not saved then report('Manual PH save failed: '..tostring(backup));return;end
-        for key in pairs(ph_lookup) do ph_lookup[key]=nil;end
-        for key,row in pairs(lookup) do ph_lookup[key]=row;end
-        clear_target_state();update_target_state();
-        report(('Manual PH %u %s. Backup: %s'):format(id,action == 'add' and 'saved' or 'removed',backup));
-        return;
-    end
-
-    -- Persist independent feature switches; old settings default to enabled.
-    if (sub == 'testimonies' or sub == 'coffers') then
-        if (#args > 3 or (#args == 3 and args[3]:lower() ~= 'on' and args[3]:lower() ~= 'off')) then
-            print(chat.header('Gaze'):append(chat.error('Use /gaze ' .. sub .. ' on or off.')));
-            return;
-        end
-        if (#args == 3) then
-            gaze.settings[sub] = args[3]:lower() == 'on';
-            clear_target_state(); settings.save(); update_target_state();
-        end
-        print(chat.header('Gaze'):append(chat.message(sub .. ': ' ..
-            (gaze.settings[sub] and 'Enabled' or 'Disabled'))));
-        return;
-    end
 
     -- /gaze mode [1|2]
     if (sub == 'mode') then
@@ -849,11 +639,7 @@ ashita.events.register('command', 'command_cb', function (e)
     -- /gaze help
     if (sub == 'help') then
         print(chat.header('Gaze'):append(chat.message('/gaze - show or hide the eye.')));
-        print(chat.header('Gaze'):append(chat.message('/gaze mode 1|2 - clipboard or browser (default).')));
-        print(chat.header('Gaze'):append(chat.message('/gaze @PlayerName | @<t> | @ - open a player profile.')));
-        print(chat.header('Gaze'):append(chat.message('/gaze testimonies on|off - toggle testimony links.')));
-        print(chat.header('Gaze'):append(chat.message('/gaze coffers on|off - toggle AF keys and coffers.')));
-        print(chat.header('Gaze'):append(chat.message('/gaze ph add "NM Name" "PH Name" ID | ph remove ID | ph list.')));
+        print(chat.header('Gaze'):append(chat.message('/gaze mode 1|2 - clipboard (default) or browser.')));
         print(chat.header('Gaze'):append(chat.message('/gaze move - toggle drag mode.')));
         print(chat.header('Gaze'):append(chat.message('/gaze size 1-3 - set eye size.')));
         print(chat.header('Gaze'):append(chat.message('/gaze recent 1-18 - set recent-gazed memory.')));
@@ -865,11 +651,9 @@ end);
 
 ashita.events.register('unload', 'unload_cb', function ()
     settings.save();
-    if (gaze.badge ~= nil) then gaze.badge:destroy(); gaze.badge = nil; end
 
     if (gaze.eye ~= nil) then
         gaze.eye:destroy();
         gaze.eye = nil;
     end
 end);
-
