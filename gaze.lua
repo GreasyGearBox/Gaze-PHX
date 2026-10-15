@@ -1,6 +1,6 @@
 addon.name = 'gaze';
 addon.author = 'Mr.Bear';
-addon.version = '0.6.1';
+addon.version = '0.6.2';
 addon.desc = 'Player profiles, NM/PH links, and testimony and AF coffer wiki shortcuts for Phoenix XI.';
 require 'common';
 
@@ -82,26 +82,23 @@ local gaze = T{
     move_mode      = false,
 };
 
--- Load the Windows URL handler only when browser mode is used.
-local browser_ffi, browser_shell;
+-- Hand browser requests to Ashita after the current callback has returned.
+-- Do not call ShellExecute through Lua FFI from the render callback.
 local function open_browser(url)
-    local ok, result = pcall(function ()
-        if (browser_shell == nil) then
-            browser_ffi = require 'ffi';
-            browser_ffi.cdef[[
-                void* __stdcall ShellExecuteA(void* hwnd, const char* operation,
-                    const char* file, const char* parameters, const char* directory, int show);
-            ]];
-            browser_shell = browser_ffi.load('shell32');
-        end
-        return tonumber(browser_ffi.cast('intptr_t',
-            browser_shell.ShellExecuteA(nil, 'open', url, nil, nil, 1)));
+    local function report_failure()
+        print(chat.header('Gaze'):append(chat.error('Could not open browser.')));
+    end
+    local ok = pcall(function ()
+        ashita.tasks.once(0.1, function ()
+            local launched = pcall(ashita.misc.open_url, url);
+            if (not launched) then report_failure(); end
+        end);
     end);
-    if (not ok or result == nil or result <= 32) then
-        print(chat.header('Gaze'):append(chat.error(
-            'Could not open browser. Use /gaze mode 1 to copy links instead.')));
+    if (not ok) then
+        report_failure();
         return false;
     end
+    -- Ashita's open_url has no return status; true means the request was queued.
     return true;
 end
 

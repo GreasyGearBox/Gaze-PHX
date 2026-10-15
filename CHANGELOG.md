@@ -1,5 +1,9 @@
 # Gaze changelog
 
+## v0.6.2
+
+[bugfix] Browser requests use ashita.misc.open_url through ashita.tasks.once with a 0.1-second delay. This replaces direct ShellExecuteA calls through Lua FFI. Automatic opening is preserved. Intended to address XiUI crashes during browser launching; in-game verification remains pending.
+
 ## v0.6.1
 
 Changes since the approved v0.4.1 release.
