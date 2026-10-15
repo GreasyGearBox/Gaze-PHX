@@ -1,4 +1,4 @@
-# Gaze · PHX v0.6.1
+# Gaze · PHX v0.6.2
 
 **Author:** Mr.Bear  
 **Platform:** Ashita 4 · Phoenix XI
