@@ -7,9 +7,7 @@ Gaze provides a single eye interface for opening public Phoenix character profil
 
 ## Bugfix v0.6.2 ##
 
-Browser links now open through Ashita’s URL launcher after a
-0.1-second delay. This change addresses the XiUI crash reported
-when opening links in mode 2. Automatic browser opening is preserved.
+Gaze v0.6.2 fixes an issue where opening browser links in mode 2 could crash XiUI and disrupt its saved layout. Browser links now open through a separate hidden helper process instead of invoking the Windows URL handler inside the game process. Automatic browser opening is preserved, and initial in-game testing was successful. No new features were added.
 
 This should prevent xiui crashing when launching urls.
 
